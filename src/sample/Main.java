@@ -5,11 +5,18 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import sample.config.GlobalConfig;
 
 public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
+        try {
+            GlobalConfig.initGlobalConfig();
+        } catch (Exception ex) {
+            ex.printStackTrace(System.out);
+            return;
+        }
         Parent root = FXMLLoader.load(getClass().getResource("MainPage.fxml"));
         primaryStage.setTitle("GymDB");
         primaryStage.setScene(new Scene(root, 1100, 700));
