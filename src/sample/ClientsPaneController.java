@@ -1,17 +1,17 @@
 package sample;
 
 import javafx.collections.ObservableList;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.HBox;
 import sample.dbmanagers.ClientManager;
 import sample.entity.Client;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
@@ -37,7 +37,7 @@ public class ClientsPaneController {
     @FXML
     private TableColumn<Client, String> colRegDate;
     @FXML
-    private TableColumn<Client, ?> colActions;
+    private TableColumn<Client, Void> colActions;
     @FXML
     private Button btnFindClient;
     @FXML
@@ -47,7 +47,9 @@ public class ClientsPaneController {
 
     @FXML
     void initialize() throws IOException {
+
         loadclients();
+
         btnAddClient.setOnAction(event ->{
             try {
                 FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("addClientPanel.fxml"));
@@ -63,13 +65,38 @@ public class ClientsPaneController {
         });
     }
     private void loadclients(){
-        ObservableList<Client> list =  clientManager.findClients();
+        ObservableList<Client> list = clientManager.findClients();
         colNum.setCellValueFactory(new PropertyValueFactory<Client, Integer>("ClientId"));
         colName.setCellValueFactory(new PropertyValueFactory<Client, String>("Name"));
         colBornDate.setCellValueFactory(new PropertyValueFactory<Client, String>("BornDate"));
         colEmail.setCellValueFactory(new PropertyValueFactory<Client, String>("Email"));
         colPhone.setCellValueFactory(new PropertyValueFactory<Client, String>("Phone"));
         colRegDate.setCellValueFactory(new PropertyValueFactory<Client, String>("RegDate"));
+        colActions.setCellFactory(param -> new TableCell<Client, Void>() {
+            private ImageView imageUpdate = new ImageView(new Image("sample/sourse/pencil.png"));
+            private ImageView imageDelete = new ImageView(new Image("sample/sourse/button_cancel.png"));
+            private final Button editButton = new Button("edit");
+            private final Button deleteButton = new Button("delete");
+            private final HBox pane = new HBox(10,imageUpdate, imageDelete);
+
+            {
+                imageUpdate.setOnMouseClicked(event -> {
+                    Client getPatient = getTableView().getItems().get(getIndex());
+                    System.out.println(getPatient.getClientId() + "   " + getPatient.getName());
+                });
+
+                imageDelete.setOnMouseClicked(event -> {
+                    Client getPatient = getTableView().getItems().get(getIndex());
+                });
+            }
+
+            @Override
+            protected void updateItem(Void item, boolean empty) {
+                super.updateItem(item, empty);
+
+                setGraphic(empty ? null : pane);
+            }
+        });
         tableClients.setItems(list);
     }
 
