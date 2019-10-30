@@ -1,35 +1,84 @@
 package sample.entity;
 
+import java.time.LocalDate;
+import java.util.Date;
+
 public class Client {
     private int clientid;
-    private String name;
+    private String firstname;
+    private String secondname;
+    private String patronymic;
     private String email;
     private String phone;
     private String sex;
-    private String bornDate;
+    private LocalDate bornDate;
     private String regDate;
+    private String abonementType;
+
+
 
     public Client() {
     }
 
-    public Client(int id, String name, String email, String phone, String bornDate, String regDate) {
-        this.clientid = id;
-        this.name = name;
+    public Client(String firstname, String secondname, String patronymic, String email, String phone, LocalDate bornDate) {
+        this.firstname = firstname;
+        this.secondname = secondname;
+        this.patronymic = patronymic;
         this.email = email;
         this.phone = phone;
         this.bornDate = bornDate;
-        this.regDate = regDate;
     }
 
-    public Client(int id, String name, String email, String phone, String sex, String bornDate, String regDate) {
-        this.clientid = id;
-        this.name = name;
+    public Client(String firstname, String secondname, String patronymic, String email, String phone, String sex, LocalDate bornDate, String abonementType) {
+        this.firstname = firstname;
+        this.secondname = secondname;
+        this.patronymic = patronymic;
         this.email = email;
         this.phone = phone;
         this.sex = sex;
         this.bornDate = bornDate;
         this.regDate = regDate;
+        this.abonementType = abonementType;
     }
+
+    public String getFullName() {
+        return secondname +" "+ firstname +" "+ patronymic;
+    }
+
+    public String getFirstname() {
+        return firstname;
+    }
+
+    public void setFirstname(String firstname) {
+        this.firstname = firstname;
+    }
+
+    public String getSecondname() {
+        return secondname;
+    }
+
+    public void setSecondname(String secondname) {
+        this.secondname = secondname;
+    }
+
+    public String getPatronymic() {
+        return patronymic;
+    }
+
+    public void setPatronymic(String patronymic) {
+        this.patronymic = patronymic;
+    }
+
+    public String getAbonementType() {
+        return abonementType;
+    }
+
+    public void setAbonementType(String abonementType) {
+        this.abonementType = abonementType;
+    }
+
+
+
 
     public String getRegDate() {
         return regDate;
@@ -42,12 +91,6 @@ public class Client {
     }
     public void setId(int id) {
         this.clientid = id;
-    }
-    public String getName() {
-        return name;
-    }
-    public void setName(String name) {
-        this.name = name;
     }
     public String getEmail() {
         return email;
@@ -67,10 +110,10 @@ public class Client {
     public void setSex(String sex) {
         this.sex = sex;
     }
-    public String getBornDate() {
+    public LocalDate getBornDate() {
         return bornDate;
     }
-    public void setBornDate(String bornDate) {
+    public void setBornDate(LocalDate bornDate) {
         this.bornDate = bornDate;
     }
 }
