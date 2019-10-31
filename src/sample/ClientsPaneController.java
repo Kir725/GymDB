@@ -1,5 +1,8 @@
 package sample;
 
+import javafx.beans.InvalidationListener;
+import javafx.collections.FXCollections;
+import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
 import javafx.event.EventHandler;
 import javafx.scene.Cursor;
@@ -20,6 +23,10 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.time.LocalDate;
+import java.util.Collection;
+import java.util.Iterator;
+import java.util.List;
+import java.util.ListIterator;
 
 public class ClientsPaneController {
     private ClientManager clientManager = new ClientManager();
@@ -43,7 +50,7 @@ public class ClientsPaneController {
     @FXML
     private TableColumn<Client, Void> colActions;
     @FXML
-    private Button btnFindClient;
+    private Button btnSearchClients;
     @FXML
     private Button btnClear;
     @FXML
@@ -134,9 +141,27 @@ public class ClientsPaneController {
                 e.printStackTrace();
             }
         });
+        btnSearchClients.setOnAction(event->{
+            search();
+        });
+        btnClear.setOnAction(event->{
+            tfNameSearch.setText("");
+            loadclients(clientManager.findClients());
+        });
     }
     private void loadclients(ObservableList<Client> list){
         tableClients.setItems(list);
+    }
+    private void search(){
+        String nameSample = tfNameSearch.getText();
+        ObservableList<Client> originalList = clientManager.findClients();
+        ObservableList<Client> finalList = FXCollections.observableArrayList();
+        for(Client client : originalList){
+            if(client.getFirstname().equals(nameSample)){
+                finalList.add(client);
+            }
+        }
+        tableClients.setItems(finalList);
     }
 
 }

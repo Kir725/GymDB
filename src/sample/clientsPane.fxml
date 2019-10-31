@@ -35,8 +35,8 @@
                 <TableColumn fx:id="colActions" prefWidth="100.0" text="Действия" />
             </columns>
         </TableView>
-        <Button fx:id="btnFindClient" layoutX="755.0" layoutY="148.0" mnemonicParsing="false" text="Найти" />
-        <Button fx:id="btnClear" layoutX="815.0" layoutY="148.0" mnemonicParsing="false" text="Очистить" />
+        <Button fx:id="btnSearchClients" layoutX="755.0" layoutY="148.0" mnemonicParsing="false" text="Найти" />
+        <Button fx:id="btnClear" layoutX="815.0" layoutY="148.0" mnemonicParsing="false" text="Отменить" />
         <Label layoutX="14.0" layoutY="71.0" text="ФИО" />
         <TextField fx:id="tfNameSearch" layoutX="60.0" layoutY="67.0" prefHeight="25.0" prefWidth="278.0" />
     </children>
