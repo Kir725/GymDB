@@ -1,14 +1,58 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import java.lang.String?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="sample.AddClientController"
-            prefHeight="400.0" prefWidth="600.0">
-
+<AnchorPane prefHeight="240.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.AddClientController">
+   <children>
+      <AnchorPane layoutX="14.0" layoutY="14.0" prefHeight="191.0" prefWidth="670.0" style="-fx-border-style: solid;" AnchorPane.leftAnchor="8.0" AnchorPane.rightAnchor="8.0" AnchorPane.topAnchor="8.0">
+         <children>
+            <Label layoutX="31.0" layoutY="28.0" text="Имя">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="31.0" layoutY="68.0" text="Телефон">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="31.0" layoutY="105.0" text="Email">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="32.0" layoutY="144.0" text="Дата рождения">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <TextField fx:id="tfSecondName" layoutX="151.0" layoutY="26.0" promptText="Фамилия" />
+            <TextField fx:id="tfName" layoutX="300.0" layoutY="26.0" promptText="Имя" />
+            <TextField fx:id="tfPatronymic" layoutX="449.0" layoutY="26.0" promptText="Отчество" />
+            <TextField fx:id="tfPhone" layoutX="151.0" layoutY="66.0" prefHeight="25.0" prefWidth="198.0" />
+            <TextField fx:id="tfEmail" layoutX="151.0" layoutY="103.0" prefHeight="25.0" prefWidth="198.0" />
+            <DatePicker fx:id="dpBornDate" layoutX="151.0" layoutY="142.0" prefHeight="25.0" prefWidth="198.0" />
+            <ChoiceBox fx:id="chbSex" layoutX="616.0" layoutY="26.0" prefHeight="25.0" prefWidth="46.0" value="М">
+            <items>
+               <FXCollections fx:factory="observableArrayList">
+                  <String fx:value="М" />
+                  <String fx:value="Ж" />
+               </FXCollections>
+            </items>
+            </ChoiceBox>
+            <Label layoutX="375.0" layoutY="107.0" text="Тип абонемента" />
+            <TextField fx:id="tfAbonementsType" layoutX="479.0" layoutY="103.0" prefHeight="25.0" prefWidth="184.0" />
+         </children>
+      </AnchorPane>
+      <Button fx:id="btnСancel" layoutX="501.0" layoutY="208.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="87.0" text="Отменить" />
+      <Button fx:id="btnSave" layoutX="599.0" layoutY="208.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="87.0" text="Сохранить" />
+   </children>
 </AnchorPane>
