@@ -1,6 +1,7 @@
 package sample;
 
 import javafx.beans.InvalidationListener;
+import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.collections.FXCollections;
 import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
@@ -12,15 +13,12 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.stage.WindowEvent;
-import sample.dbmanagers.ClientManager;
-import sample.entity.Client;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-
 import java.io.IOException;
 import java.time.LocalDate;
 import java.util.Collection;
@@ -28,8 +26,13 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
 
+import sample.dbmanagers.ClientManager;
+import sample.entity.Client;
+import sample.instruments.SearchManager;
+
 public class ClientsPaneController {
     private ClientManager clientManager = new ClientManager();
+    private SearchManager searchManager = new SearchManager();
 
     @FXML
     private Button btnAddClient;
@@ -54,27 +57,33 @@ public class ClientsPaneController {
     @FXML
     private Button btnClear;
     @FXML
+    private ChoiceBox<String> chbSexSearch;
+    @FXML
+    private TextField tfPhoneSearch;
+    @FXML
     private TextField tfNameSearch;
 
     @FXML
     void initialize() throws IOException {
-        colNum.setCellValueFactory(new PropertyValueFactory<Client, Integer>("ClientId"));
+        colNum.setCellValueFactory(param -> new ReadOnlyObjectWrapper<Integer>(tableClients.getItems().indexOf(param.getValue())+1));
         colName.setCellValueFactory(new PropertyValueFactory<Client, String>("FullName"));
         colBornDate.setCellValueFactory(new PropertyValueFactory<Client, LocalDate>("BornDate"));
         colEmail.setCellValueFactory(new PropertyValueFactory<Client, String>("Email"));
         colPhone.setCellValueFactory(new PropertyValueFactory<Client, String>("Phone"));
         colRegDate.setCellValueFactory(new PropertyValueFactory<Client, String>("RegDate"));
         colActions.setCellFactory(param -> new TableCell<Client, Void>() {
-            private ImageView imageUpdate = new ImageView(new Image("sample/sourse/pencil.png"));
+            private  Button btnUpdate = new Button("Изменить");
+            private  Button btnDelete = new Button("Удалить");
+            /*private ImageView imageUpdate = new ImageView(new Image("sample/sourse/pencil.png"));
             private ImageView imageDelete = new ImageView(new Image("sample/sourse/button_cancel.png"));
             {
                 imageUpdate.setCursor(Cursor.HAND);
                 imageDelete.setCursor(Cursor.HAND);
-            }
-            private final HBox pane = new HBox(10,imageUpdate, imageDelete);
+            }*/
+            private final HBox pane = new HBox(10,btnUpdate, btnDelete);
 
             {
-                imageUpdate.setOnMouseClicked(event -> {
+                btnUpdate.setOnMouseClicked(event -> {
                     Client patient = getTableView().getItems().get(getIndex());
                     try {
                         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("addClientPanel.fxml"));
@@ -99,7 +108,7 @@ public class ClientsPaneController {
 
                 });
 
-                imageDelete.setOnMouseClicked(event -> {
+                btnDelete.setOnMouseClicked(event -> {
                     Client patient = getTableView().getItems().get(getIndex());
                     Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Удалить клиента?", ButtonType.YES, ButtonType.CANCEL);
                     alert.showAndWait();
@@ -142,10 +151,12 @@ public class ClientsPaneController {
             }
         });
         btnSearchClients.setOnAction(event->{
-            search();
+            searchManager.searchClients(tfNameSearch.getText(),tfPhoneSearch.getText(),chbSexSearch.getValue()
+                    ,tableClients,clientManager.findClients());
         });
         btnClear.setOnAction(event->{
             tfNameSearch.setText("");
+            tfPhoneSearch.setText("");
             loadclients(clientManager.findClients());
         });
     }

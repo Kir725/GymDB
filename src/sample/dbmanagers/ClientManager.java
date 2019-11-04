@@ -10,7 +10,7 @@ import java.sql.*;
 
 public class ClientManager {
     private static final String SELECT
-            = "SELECT client_id,Имя,Фамилия,Отчество,Телефон,\"Email\",TO_CHAR(\"Дата рождения\",'DD-MM-YYYY') \"Дата рождения\"," +
+            = "SELECT client_id,Имя,Фамилия,Отчество,Пол,Телефон,\"Email\",TO_CHAR(\"Дата рождения\",'DD-MM-YYYY') \"Дата рождения\"," +
             "TO_CHAR(\"Дата регистрации\",'DD-MM-YYYY') \"Дата регистрации\", \"Тип Абонемента\" FROM clients";
     private static final String SELECT_ONE
             = "SELECT client_id, first_name, last_name, phone, email FROM jc_contact WHERE contact_id=?";
@@ -47,6 +47,7 @@ public class ClientManager {
         client.setFirstname(rs.getString("Имя"));
         client.setSecondname(rs.getString("Фамилия"));
         client.setPatronymic(rs.getString("Отчество"));
+        client.setSex(rs.getString("Пол"));
         Date tempdate = rs.getDate("Дата рождения");
         client.setBornDate(tempdate.toLocalDate());
         client.setRegDate(rs.getString("Дата регистрации"));
