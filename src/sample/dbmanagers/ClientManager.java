@@ -2,7 +2,7 @@ package sample.dbmanagers;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import sample.contactDB.PostgesConnectionBuilder;
+import sample.contactDB.PostegresConnectionBuilder;
 import sample.entity.Client;
 
 import java.sql.*;
@@ -23,7 +23,7 @@ public class ClientManager {
             = "DELETE FROM clients WHERE client_id=?";
 
 
-    private PostgesConnectionBuilder connectionBuilder = new PostgesConnectionBuilder();
+    private PostegresConnectionBuilder connectionBuilder = new PostegresConnectionBuilder();
     private Connection getConnection() throws SQLException {
         return connectionBuilder.getConnection();
     }

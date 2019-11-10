@@ -5,8 +5,8 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-public class PostgesConnectionBuilder implements ConnectionBuilder{
-    public PostgesConnectionBuilder() {
+public class PostegresConnectionBuilder implements ConnectionBuilder{
+    public PostegresConnectionBuilder() {
         try {
             Class.forName(GlobalConfig.getProperty("db.driver.class"));
         } catch (ClassNotFoundException ex) {

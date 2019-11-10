@@ -43,7 +43,7 @@
                         <VBox prefHeight="673.0" prefWidth="195.0">
                             <children>
                                 <Button fx:id="btnClients" mnemonicParsing="false" prefHeight="50.0" prefWidth="229.0" text="Клиенты" />
-                                <Button fx:id="btnManagers" mnemonicParsing="false" prefHeight="50.0" prefWidth="229.0" text="Сотрудники" />
+                                <Button fx:id="btnEmplyoees" mnemonicParsing="false" prefHeight="50.0" prefWidth="229.0" text="Сотрудники" />
                                 <Button fx:id="btnServices" mnemonicParsing="false" prefHeight="50.0" prefWidth="229.0" text="Услуги" />
                                 <Button fx:id="btnAbonements" mnemonicParsing="false" prefHeight="50.0" prefWidth="229.0" text="Абонементы" />
                             </children>

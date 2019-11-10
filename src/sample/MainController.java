@@ -1,6 +1,7 @@
 package sample;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
@@ -13,7 +14,7 @@ public class MainController {
     private Button btnClients;
 
     @FXML
-    private Button btnManagers;
+    private Button btnEmplyoees;
 
     @FXML
     private Button btnServices;
@@ -27,14 +28,21 @@ public class MainController {
     @FXML
     private AnchorPane clientsPane;
     @FXML
+    private AnchorPane employeesPane;
+    @FXML
     void initialize() throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("clientsPane.fxml"));
-        clientsPane = loader.load();
+        FXMLLoader loader = new FXMLLoader();
+        clientsPane = FXMLLoader.load(getClass().getResource("clientsPane.fxml"));
+        employeesPane = FXMLLoader.load(getClass().getResource("employeesPane.fxml"));
         abonementsPane = new AnchorPane();
         abonementsPane.getChildren().add(new Label("Абонементы"));
         btnClients.setOnAction(event ->{
             wrapperPane.getChildren().clear();
             wrapperPane.getChildren().add(clientsPane);
+        });
+        btnEmplyoees.setOnAction(event ->{
+            wrapperPane.getChildren().clear();
+            wrapperPane.getChildren().add(employeesPane);
         });
         btnAbonements.setOnAction(event ->{
             wrapperPane.getChildren().clear();

@@ -1,4 +1,4 @@
-package sample;
+package sample.Controllers;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -10,8 +10,6 @@ import sample.dbmanagers.ClientManager;
 import sample.entity.Client;
 
 public class AddClientController {
-
-    private ClientManager clientManager = new ClientManager();
 
     private boolean save = false;
 
@@ -53,22 +51,18 @@ public class AddClientController {
         });
         btnSave.setOnAction(event->{
             save = true;
-            /*Client client = new Client(tfName.getText(),tfSecondName.getText(),tfPatronymic.getText(),
-                    tfEmail.getText(),tfPhone.getText(),chbSex.getValue(),dpBornDate.getValue(),tfAbonementsType.getText());
-            clientManager.addClient(client);*/
             Stage stage = (Stage) btnSave.getScene().getWindow();
             stage.close();
         });
     }
-    public boolean isSave(){
+    boolean isSave(){
         return save;
     }
-    public Client getClient(){
-        Client client = new Client(tfName.getText(),tfSecondName.getText(),tfPatronymic.getText(),
+    Client getClient(){
+        return new Client(tfName.getText(),tfSecondName.getText(),tfPatronymic.getText(),
                 tfEmail.getText(),tfPhone.getText(),chbSex.getValue(),dpBornDate.getValue(),tfAbonementsType.getText());
-        return client;
     }
-    public void initData(Client client) {
+    void initData(Client client) {
         tfName.setText(client.getFirstname());
         tfSecondName.setText(client.getSecondname());
         tfPatronymic.setText(client.getPatronymic());
@@ -78,6 +72,5 @@ public class AddClientController {
         dpBornDate.setValue(client.getBornDate());
         tfAbonementsType.setText(client.getAbonementType());
     }
-
 
 }

@@ -1,18 +1,10 @@
-package sample;
+package sample.Controllers;
 
-import javafx.beans.InvalidationListener;
 import javafx.beans.property.ReadOnlyObjectWrapper;
-import javafx.collections.FXCollections;
-import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
-import javafx.event.EventHandler;
-import javafx.scene.Cursor;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
-import javafx.stage.WindowEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -21,11 +13,8 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import java.io.IOException;
 import java.time.LocalDate;
-import java.util.Collection;
-import java.util.Iterator;
-import java.util.List;
-import java.util.ListIterator;
 
+import sample.Controllers.AddClientController;
 import sample.dbmanagers.ClientManager;
 import sample.entity.Client;
 import sample.instruments.SearchManager;
@@ -86,7 +75,7 @@ public class ClientsPaneController {
                 btnUpdate.setOnMouseClicked(event -> {
                     Client patient = getTableView().getItems().get(getIndex());
                     try {
-                        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("addClientPanel.fxml"));
+                        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/sample/addClientPanel.fxml"));
                         Parent root1 = (Parent) fxmlLoader.load();
                         AddClientController controller = fxmlLoader.getController();
                         controller.initData(patient);
@@ -131,7 +120,7 @@ public class ClientsPaneController {
 
         btnAddClient.setOnAction(event ->{
             try {
-                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("addClientPanel.fxml"));
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/sample/addClientPanel.fxml"));
                 Parent root1 = (Parent) fxmlLoader.load();
                 AddClientController controller = fxmlLoader.getController();
                 Stage stage = new Stage();
@@ -162,17 +151,6 @@ public class ClientsPaneController {
     }
     private void loadclients(ObservableList<Client> list){
         tableClients.setItems(list);
-    }
-    private void search(){
-        String nameSample = tfNameSearch.getText();
-        ObservableList<Client> originalList = clientManager.findClients();
-        ObservableList<Client> finalList = FXCollections.observableArrayList();
-        for(Client client : originalList){
-            if(client.getFirstname().equals(nameSample)){
-                finalList.add(client);
-            }
-        }
-        tableClients.setItems(finalList);
     }
 
 }
