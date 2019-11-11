@@ -89,7 +89,7 @@ public class ClientsPaneController {
                             {
                                 clientManager.updateClient(controller.getClient(),patient.getClientId());
                             }
-                            loadclients(clientManager.findClients());
+                            loadTable(clientManager.findClients());
                         });
                     } catch (IOException e) {
                         e.printStackTrace();
@@ -104,7 +104,7 @@ public class ClientsPaneController {
                     if (alert.getResult() == ButtonType.YES) {
                         clientManager.deleteClient(patient.getClientId());
                     }
-                    loadclients(clientManager.findClients());
+                    loadTable(clientManager.findClients());
                 });
             }
 
@@ -116,7 +116,7 @@ public class ClientsPaneController {
             }
         });
 
-        loadclients(clientManager.findClients());
+        loadTable(clientManager.findClients());
 
         btnAddClient.setOnAction(event ->{
             try {
@@ -133,7 +133,7 @@ public class ClientsPaneController {
                     {
                         clientManager.addClient(controller.getClient());
                     }
-                    loadclients(clientManager.findClients());
+                    loadTable(clientManager.findClients());
                 });
             } catch (IOException e) {
                 e.printStackTrace();
@@ -146,10 +146,10 @@ public class ClientsPaneController {
         btnClear.setOnAction(event->{
             tfNameSearch.setText("");
             tfPhoneSearch.setText("");
-            loadclients(clientManager.findClients());
+            loadTable(clientManager.findClients());
         });
     }
-    private void loadclients(ObservableList<Client> list){
+    private void loadTable(ObservableList<Client> list){
         tableClients.setItems(list);
     }
 

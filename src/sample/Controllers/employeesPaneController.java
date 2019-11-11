@@ -105,7 +105,7 @@ public class employeesPaneController {
                             {
                                 employeeManager.updateEmployee(controller.getEmployee(),patient.getEmployeeId());
                             }
-                            loademployees(employeeManager.findEmployees());
+                            loadTable(employeeManager.findEmployees());
                         });
                     } catch (IOException e) {
                         e.printStackTrace();
@@ -119,7 +119,7 @@ public class employeesPaneController {
                     if (alert.getResult() == ButtonType.YES) {
                         employeeManager.deleteEmployee(patient.getEmployeeId());
                     }
-                    loademployees(employeeManager.findEmployees());
+                    loadTable(employeeManager.findEmployees());
                 });
             }
 
@@ -130,7 +130,7 @@ public class employeesPaneController {
                 setGraphic(empty ? null : pane);
             }
         });
-        loademployees(employeeManager.findEmployees());
+        loadTable(employeeManager.findEmployees());
 
         btnAddEmployee.setOnAction(event ->{
             try {
@@ -147,7 +147,7 @@ public class employeesPaneController {
                     {
                         employeeManager.addEmployee(controller.getEmployee());
                     }
-                    loademployees(employeeManager.findEmployees());
+                    loadTable(employeeManager.findEmployees());
                 });
             } catch (IOException e) {
                 e.printStackTrace();
@@ -157,7 +157,7 @@ public class employeesPaneController {
             tfNameSearch.setText("");
             tfPhoneSearch.setText("");
             choibxPositionSearch.setValue("");
-            loademployees(employeeManager.findEmployees());
+            loadTable(employeeManager.findEmployees());
         });
         btnSearchEmployees.setOnAction(event->{
             searchManager.searchEmployees(tfNameSearch.getText(),tfPhoneSearch.getText(),chbSexSearch.getValue(),choibxPositionSearch.getValue(),
@@ -165,7 +165,7 @@ public class employeesPaneController {
         });
 
     }
-        private void loademployees(ObservableList<Employee> list){
+        private void loadTable(ObservableList<Employee> list){
             tableEmployees.setItems(list);
         }
 }

@@ -31,11 +31,10 @@ public class MainController {
     private AnchorPane employeesPane;
     @FXML
     void initialize() throws IOException {
-        FXMLLoader loader = new FXMLLoader();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("abonementsPane.fxml"));
         clientsPane = FXMLLoader.load(getClass().getResource("clientsPane.fxml"));
         employeesPane = FXMLLoader.load(getClass().getResource("employeesPane.fxml"));
-        abonementsPane = new AnchorPane();
-        abonementsPane.getChildren().add(new Label("Абонементы"));
+        abonementsPane = FXMLLoader.load(getClass().getResource("abonementsPane.fxml"));
         btnClients.setOnAction(event ->{
             wrapperPane.getChildren().clear();
             wrapperPane.getChildren().add(clientsPane);
