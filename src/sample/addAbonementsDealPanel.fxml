@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<?import javafx.collections.FXCollections?>
+<?import java.lang.String?>
+<AnchorPane prefHeight="195.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controllers.AddAbonementsDealController">
+   <children>
+      <AnchorPane layoutX="14.0" layoutY="14.0" prefHeight="131.0" prefWidth="684.0" style="-fx-border-style: solid;" AnchorPane.leftAnchor="8.0" AnchorPane.rightAnchor="8.0" AnchorPane.topAnchor="8.0">
+         <children>
+            <Label layoutX="31.0" layoutY="30.0" text="Клиент">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="366.0" layoutY="30.0" text="Дата начала">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="366.0" layoutY="69.0" text="Дата окончания">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <TextField fx:id="tfClientName" layoutX="152.0" layoutY="28.0" prefHeight="25.0" prefWidth="198.0" />
+            <Label layoutX="31.0" layoutY="69.0" text="Тип абонемента">
+               <font>
+                  <Font size="14.0" />
+               </font></Label>
+            <ChoiceBox fx:id="choibxAbonementType" layoutX="152.0" layoutY="67.0" prefHeight="25.0" prefWidth="198.0" >
+            <items>
+               <FXCollections fx:factory="observableArrayList">
+                  <String fx:value="Дневной" />
+                  <String fx:value="Безлимит" />
+                  <String fx:value="Полугодовой" />
+                  <String fx:value="Абонемент на год" />
+               </FXCollections>
+            </items>
+         </ChoiceBox>
+            <DatePicker fx:id="dpDateStart" layoutX="483.0" layoutY="28.0" />
+            <DatePicker fx:id="dpDateEnd" layoutX="483.0" layoutY="67.0" />
+         </children>
+      </AnchorPane>
+      <Button fx:id="btnСancel" layoutX="500.0" layoutY="153.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="87.0" text="Отменить" />
+      <Button fx:id="btnSave" layoutX="599.0" layoutY="153.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="87.0" text="Сохранить" />
+   </children>
+</AnchorPane>

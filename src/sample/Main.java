@@ -17,7 +17,7 @@ public class Main extends Application {
             ex.printStackTrace(System.out);
             return;
         }
-        Parent root = FXMLLoader.load(getClass().getResource("MainPage.fxml"));
+        Parent root = FXMLLoader.<Parent>load(getClass().getResource("/sample/MainPage.fxml"));
         primaryStage.setTitle("GymDB");
         primaryStage.setScene(new Scene(root, 1100, 700));
         primaryStage.show();

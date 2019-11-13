@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<?import javafx.collections.FXCollections?>
+<?import java.lang.String?>
+<AnchorPane fx:id="abonementsSalePane" prefHeight="673.0" prefWidth="897.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controllers.AbonementsSalePaneController">
+    <children>
+        <Separator layoutY="43.0" prefHeight="0.0" prefWidth="897.0" />
+        <Separator layoutY="160.0" prefWidth="897.0" />
+        <Label layoutX="14.0" layoutY="6.0" text="Продажа Абонементов">
+            <font>
+                <Font name="Comic Sans MS" size="20.0" />
+            </font>
+        </Label>
+        <Button fx:id="btnAddDeal" layoutX="791.0" layoutY="4.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="92.0" text="Продать" />
+        <Label layoutX="14.0" layoutY="46.0" text="Поиск">
+            <font>
+                <Font name="System Italic" size="12.0" />
+            </font>
+        </Label>
+        <TableView fx:id="tableBD" layoutY="161.0" prefHeight="512.0" prefWidth="897.0">
+            <columns>
+                <TableColumn fx:id="colCardNumber" prefWidth="105.0" text="Номер карты" />
+                <TableColumn fx:id="colClientName" prefWidth="151.0" text="Фамилия клиента" />
+                <TableColumn fx:id="colAbonementType" prefWidth="199.0" text="Тип Абонемента" />
+                <TableColumn fx:id="colDateStart" prefWidth="160.0" text="Дата начала" />
+                <TableColumn fx:id="colDateEnd" minWidth="0.0" prefWidth="144.0" text="Дата окончания" />
+                <TableColumn fx:id="colActions" prefWidth="137.0" text="Действия" />
+            </columns>
+        </TableView>
+        <Button fx:id="btnSearch" layoutX="754.0" layoutY="124.0" mnemonicParsing="false" text="Найти" />
+        <Button fx:id="btnClear" layoutX="813.0" layoutY="124.0" mnemonicParsing="false" text="Очистить" />
+        <Label layoutX="17.0" layoutY="71.0" text="Номер карты" />
+      <TextField fx:id="tfCardNumberSearch" layoutX="108.0" layoutY="67.0" prefHeight="25.0" prefWidth="176.0" />
+      <TextField fx:id="tfClientNameSearch" layoutX="108.0" layoutY="99.0" prefHeight="25.0" prefWidth="176.0" />
+      <Label layoutX="17.0" layoutY="103.0" text="Клиент" />
+      <Label layoutX="310.0" layoutY="71.0" text="Тип Абонемента" />
+      <ChoiceBox fx:id="choibxAbonementType" layoutX="419.0" layoutY="67.0" prefHeight="25.0" prefWidth="176.0" >
+          <items>
+              <FXCollections fx:factory="observableArrayList">
+                  <String fx:value="Дневной" />
+                  <String fx:value="Безлимит" />
+                  <String fx:value="Полугодовой" />
+                  <String fx:value="Абонемент на год" />
+              </FXCollections>
+          </items>
+      </ChoiceBox>
+    </children>
+
+</AnchorPane>

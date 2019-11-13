@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="220.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controllers.AddServicesPaneController">
+   <children>
+      <AnchorPane layoutX="14.0" layoutY="14.0" prefHeight="158.0" prefWidth="684.0" style="-fx-border-style: solid;" AnchorPane.leftAnchor="8.0" AnchorPane.rightAnchor="8.0" AnchorPane.topAnchor="8.0">
+         <children>
+            <Label layoutX="31.0" layoutY="68.0" text="Длительность">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="31.0" layoutY="105.0" text="Стоимость">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <TextField fx:id="tfValidity" layoutX="151.0" layoutY="66.0" prefHeight="25.0" prefWidth="198.0" />
+            <Label layoutX="31.0" layoutY="30.0" text="Название">
+               <font>
+                  <Font size="14.0" />
+               </font></Label>
+            <TextField fx:id="tfServiceName" layoutX="151.0" layoutY="26.0" prefHeight="25.0" prefWidth="198.0" />
+            <Label layoutX="368.0" layoutY="16.0" text="Описание">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <TextField fx:id="tfPrice" layoutX="151.0" layoutY="103.0" prefHeight="25.0" prefWidth="198.0" />
+            <TextArea fx:id="txarDescription" layoutX="368.0" layoutY="40.0" prefHeight="87.0" prefWidth="304.0" />
+         </children>
+      </AnchorPane>
+      <Button fx:id="btnСancel" layoutX="498.0" layoutY="183.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="87.0" text="Отменить" />
+      <Button fx:id="btnSave" layoutX="599.0" layoutY="183.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="87.0" text="Сохранить" />
+   </children>
+</AnchorPane>

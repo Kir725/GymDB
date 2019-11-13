@@ -3,9 +3,7 @@ package sample.instruments;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import javafx.scene.control.TableView;
-import sample.entity.Abonement;
-import sample.entity.Client;
-import sample.entity.Employee;
+import sample.entity.*;
 
 public class SearchManager {
     public void searchClients(String enterName, String enterPhone,String sex, TableView<Client> table, ObservableList<Client> originalList){
@@ -26,4 +24,16 @@ public class SearchManager {
         filterList.setPredicate(abonement -> abonement.getTitleAbonement().toLowerCase().contains(abonementType.toLowerCase()));
         table.setItems(filterList);
     }
+    public void searchServices(String serviceName, TableView<Service> table, ObservableList<Service> originalList){
+        FilteredList<Service> filterList = new FilteredList<>(originalList);
+        filterList.setPredicate(service -> service.getServiceName().toLowerCase().contains(serviceName.toLowerCase()));
+        table.setItems(filterList);
+    }
+    public void searchDeals(String cardNumder, String clientName, String abonementsType, TableView<AbonementsDeal> table, ObservableList<AbonementsDeal> originalList){
+        FilteredList<AbonementsDeal> filterList = new FilteredList<>(originalList);
+        filterList.setPredicate(deal -> Integer.valueOf(deal.getCardNumber()).toString().contains(cardNumder) &&
+                deal.getClientName().toLowerCase().contains(clientName.toLowerCase()) && deal.getAbonementTitle().equals(abonementsType));
+        table.setItems(filterList);
+    }
+
 }
