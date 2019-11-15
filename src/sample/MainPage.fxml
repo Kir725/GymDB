@@ -47,7 +47,7 @@
                                 <Button fx:id="btnServices" mnemonicParsing="false" prefHeight="50.0" prefWidth="229.0" text="Услуги" />
                                 <Button fx:id="btnAbonements" mnemonicParsing="false" prefHeight="50.0" prefWidth="229.0" text="Абонементы" />
                         <Button fx:id="btnAbonementsSale" mnemonicParsing="false" prefHeight="50.0" prefWidth="229.0" text="Продажа Абонементов" />
-                        <Button fx:id="btnTimeTable" mnemonicParsing="false" prefHeight="50.0" prefWidth="229.0" text="Расписание" />
+                        <Button fx:id="btnCalendar" mnemonicParsing="false" prefHeight="50.0" prefWidth="229.0" text="Расписание" />
                             </children>
                         </VBox>
                     </children>

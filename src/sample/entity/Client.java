@@ -1,7 +1,6 @@
 package sample.entity;
 
 import java.time.LocalDate;
-import java.util.Date;
 
 public class Client {
     private int clientid;

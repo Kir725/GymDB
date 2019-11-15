@@ -35,5 +35,11 @@ public class SearchManager {
                 deal.getClientName().toLowerCase().contains(clientName.toLowerCase()) && deal.getAbonementTitle().equals(abonementsType));
         table.setItems(filterList);
     }
+    public void searchCalendar(String service, String employee, String placement, TableView<Calendar> table, ObservableList<Calendar> originalList){
+        FilteredList<Calendar> filterList = new FilteredList<>(originalList);
+        filterList.setPredicate(calendar -> calendar.getServiceName().toLowerCase().contains(service.toLowerCase())&&calendar.getEmployeeName().toLowerCase().contains(
+                employee.toLowerCase()) && calendar.getPlacementName().toLowerCase().contains(placement.toLowerCase()));
+        table.setItems(filterList);
+    }
 
 }

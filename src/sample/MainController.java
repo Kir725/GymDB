@@ -26,8 +26,7 @@ public class MainController {
     @FXML
     private Button btnAbonementsSale;
     @FXML
-    private Button btnTimeTable;
-
+    private Button btnCalendar;
     @FXML
     private AnchorPane wrapperPane;
     @FXML
@@ -41,13 +40,16 @@ public class MainController {
     @FXML
     private AnchorPane abonementsSalePane;
     @FXML
+    private AnchorPane calendarPane;
+    @FXML
     void initialize() throws IOException {
-        //FXMLLoader loader =  new FXMLLoader(getClass().getResource("/sample/abonementsSalePane.fxml"));
+        //FXMLLoader loader =  new FXMLLoader(getClass().getResource("/sample/calendarPane.fxml"));
         clientsPane = load(getClass().getResource("/sample/clientsPane.fxml"));
         employeesPane = load(getClass().getResource("/sample/employeesPane.fxml"));
         abonementsPane = load(getClass().getResource("/sample/abonementsPane.fxml"));
         servicesPane = FXMLLoader.<AnchorPane>load(getClass().getResource("/sample/servicesPane.fxml"));
         abonementsSalePane = load(getClass().getResource("/sample/abonementsSalePane.fxml"));
+        calendarPane = load(getClass().getResource("/sample/calendarPane.fxml"));
         btnClients.setOnAction(event ->{
             wrapperPane.getChildren().clear();
             wrapperPane.getChildren().add(clientsPane);
@@ -67,6 +69,10 @@ public class MainController {
         btnAbonementsSale.setOnAction(event ->{
             wrapperPane.getChildren().clear();
             wrapperPane.getChildren().add(abonementsSalePane);
+        });
+        btnCalendar.setOnAction(event ->{
+            wrapperPane.getChildren().clear();
+            wrapperPane.getChildren().add(calendarPane);
         });
     }
 }
