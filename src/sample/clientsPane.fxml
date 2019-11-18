@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.String?>
+<?import javafx.collections.FXCollections?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
@@ -10,8 +12,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<?import javafx.collections.FXCollections?>
-<?import java.lang.String?>
 <AnchorPane fx:id="clientsPane" prefHeight="673.0" prefWidth="897.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controllers.ClientsPaneController">
     <children>
         <Separator layoutY="43.0" prefHeight="0.0" prefWidth="897.0" />
@@ -31,10 +31,10 @@
             <columns>
                 <TableColumn fx:id="colNum" prefWidth="37.0" text="№" />
                 <TableColumn fx:id="colName" prefWidth="297.0" text="Имя" />
-                <TableColumn fx:id="colBornDate" prefWidth="75.0" text="Дата&#10;Рождения&#10;" />
-                <TableColumn fx:id="colEmail" prefWidth="150.0" text="Email" />
+                <TableColumn fx:id="colBornDate" prefWidth="90.0" text="Дата&#10;Рождения&#10;" />
+                <TableColumn fx:id="colEmail" prefWidth="136.0" text="Email" />
                 <TableColumn fx:id="colPhone" minWidth="0.0" prefWidth="150.0" text="Телефон" />
-                <TableColumn fx:id="colRegDate" prefWidth="87.0" text="Дата &#10;Регистрации&#10;" />
+                <TableColumn fx:id="colRegDate" prefWidth="90.0" text="Дата &#10;Регистрации&#10;" />
                 <TableColumn fx:id="colActions" prefWidth="100.0" text="Действия" />
             </columns>
         </TableView>

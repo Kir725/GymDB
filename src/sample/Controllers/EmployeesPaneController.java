@@ -4,10 +4,13 @@ import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Cursor;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.stage.Modality;
@@ -77,18 +80,18 @@ public class EmployeesPaneController {
         colPhone.setCellValueFactory(new PropertyValueFactory<Employee, String>("Phone"));
         colSalary.setCellValueFactory(new PropertyValueFactory<Employee, Float>("Salary"));
         colActions.setCellFactory(param -> new TableCell<Employee, Void>() {
-            private  Button btnUpdate = new Button("Изменить");
-            private  Button btnDelete = new Button("Удалить");
-            /*private ImageView imageUpdate = new ImageView(new Image("sample/sourse/pencil.png"));
+            /*private  Button btnUpdate = new Button("Изменить");
+            private  Button btnDelete = new Button("Удалить");*/
+            private ImageView imageUpdate = new ImageView(new Image("sample/sourse/pencil.png"));
             private ImageView imageDelete = new ImageView(new Image("sample/sourse/button_cancel.png"));
             {
                 imageUpdate.setCursor(Cursor.HAND);
                 imageDelete.setCursor(Cursor.HAND);
-            }*/
-            private final HBox pane = new HBox(10,btnUpdate, btnDelete);
+            }
+            private final HBox pane = new HBox(10,imageUpdate, imageDelete);
 
             {
-                btnUpdate.setOnMouseClicked(event -> {
+                imageUpdate.setOnMouseClicked(event -> {
                     Employee patient = getTableView().getItems().get(getIndex());
                     try {
                         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/sample/addEmployeePanel.fxml"));
@@ -112,7 +115,7 @@ public class EmployeesPaneController {
                     }
 
                 });
-                btnDelete.setOnMouseClicked(event -> {
+                imageDelete.setOnMouseClicked(event -> {
                     Employee patient = getTableView().getItems().get(getIndex());
                     Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Удалить сотрудника?", ButtonType.YES, ButtonType.CANCEL);
                     alert.showAndWait();

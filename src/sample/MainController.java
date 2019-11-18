@@ -51,6 +51,8 @@ public class MainController {
     @FXML
     private AnchorPane abonementsSalePane;
     @FXML
+    private AnchorPane reportClientAgePane;
+    @FXML
     private AnchorPane calendarPane;
     @FXML
     void initialize() throws IOException {
@@ -60,7 +62,8 @@ public class MainController {
         abonementsPane = load(getClass().getResource("/sample/abonementsPane.fxml"));
         servicesPane = FXMLLoader.<AnchorPane>load(getClass().getResource("/sample/servicesPane.fxml"));
         abonementsSalePane = load(getClass().getResource("/sample/abonementsSalePane.fxml"));
-        calendarPane = load(getClass().getResource("/sample/calendarPane.fxml"));
+        //calendarPane = load(getClass().getResource("/sample/calendarPane.fxml"));
+        reportClientAgePane = load(getClass().getResource("/sample/reportClientAgePane.fxml"));
         btnClients.setOnAction(event ->{
             wrapperPane.getChildren().clear();
             wrapperPane.getChildren().add(clientsPane);
@@ -84,6 +87,10 @@ public class MainController {
         btnCalendar.setOnAction(event ->{
             wrapperPane.getChildren().clear();
             wrapperPane.getChildren().add(calendarPane);
+        });
+        miClientAgeReport.setOnAction(event->{
+            wrapperPane.getChildren().clear();
+            wrapperPane.getChildren().add(reportClientAgePane);
         });
     }
 }

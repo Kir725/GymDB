@@ -39,7 +39,7 @@
             <TextField fx:id="tfPatronymic" layoutX="449.0" layoutY="26.0" promptText="Отчество" />
             <TextField fx:id="tfPhone" layoutX="151.0" layoutY="66.0" prefHeight="25.0" prefWidth="198.0" />
             <TextField fx:id="tfEmail" layoutX="151.0" layoutY="103.0" prefHeight="25.0" prefWidth="198.0" />
-            <DatePicker fx:id="dpBornDate" layoutX="151.0" layoutY="142.0" prefHeight="25.0" prefWidth="198.0" />
+            <DatePicker fx:id="dpBornDate" layoutX="151.0" layoutY="142.0" prefHeight="25.0" prefWidth="198.0"/>
             <ChoiceBox fx:id="chbSex" layoutX="616.0" layoutY="26.0" prefHeight="25.0" prefWidth="46.0" value="М">
             <items>
                <FXCollections fx:factory="observableArrayList">

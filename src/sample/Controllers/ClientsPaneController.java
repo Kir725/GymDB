@@ -2,8 +2,11 @@ package sample.Controllers;
 
 import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.collections.ObservableList;
+import javafx.scene.Cursor;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -61,18 +64,18 @@ public class ClientsPaneController {
         colPhone.setCellValueFactory(new PropertyValueFactory<Client, String>("Phone"));
         colRegDate.setCellValueFactory(new PropertyValueFactory<Client, String>("RegDate"));
         colActions.setCellFactory(param -> new TableCell<Client, Void>() {
-            private  Button btnUpdate = new Button("Изменить");
-            private  Button btnDelete = new Button("Удалить");
-            /*private ImageView imageUpdate = new ImageView(new Image("sample/sourse/pencil.png"));
+            /*private  Button btnUpdate = new Button("Изменить");
+            private  Button btnDelete = new Button("Удалить");*/
+            private ImageView imageUpdate = new ImageView(new Image("sample/sourse/pencil.png"));
             private ImageView imageDelete = new ImageView(new Image("sample/sourse/button_cancel.png"));
             {
                 imageUpdate.setCursor(Cursor.HAND);
                 imageDelete.setCursor(Cursor.HAND);
-            }*/
-            private final HBox pane = new HBox(10,btnUpdate, btnDelete);
+            }
+            private final HBox pane = new HBox(10,imageUpdate, imageDelete);
 
             {
-                btnUpdate.setOnMouseClicked(event -> {
+                imageUpdate.setOnMouseClicked(event -> {
                     Client patient = getTableView().getItems().get(getIndex());
                     try {
                         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/sample/addClientPanel.fxml"));
@@ -97,7 +100,7 @@ public class ClientsPaneController {
 
                 });
 
-                btnDelete.setOnMouseClicked(event -> {
+                imageDelete.setOnMouseClicked(event -> {
                     Client patient = getTableView().getItems().get(getIndex());
                     Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Удалить клиента?", ButtonType.YES, ButtonType.CANCEL);
                     alert.showAndWait();
