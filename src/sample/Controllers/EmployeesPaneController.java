@@ -19,7 +19,7 @@ import sample.entity.Employee;
 import sample.instruments.SearchManager;
 
 
-public class employeesPaneController {
+public class EmployeesPaneController {
     private EmployeeManager employeeManager = new EmployeeManager();
     private SearchManager searchManager = new SearchManager();
 

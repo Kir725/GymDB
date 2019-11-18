@@ -15,7 +15,7 @@ public class CalendarManager {
     private static final String INSERT
             = "INSERT INTO calendar(\n" +
             "\"Дата\", \"Время начала\", \"Время окончания\", \"Услуга\", \"Сотрудник\", \"Помещение\")" +
-            "VALUES (?, ?,(SELECT ? + \"Длительность(мин)\"*'1 minute'::interval FROM services WHERE service_id=(SELECT service_id FROM services WHERE Наименование = ?))," +
+            "VALUES (?, ?,(SELECT ?::time + \"Длительность(мин)\"*'1 minute'::interval FROM services WHERE service_id=(SELECT service_id FROM services WHERE Наименование = ?))," +
             "(SELECT service_id FROM services WHERE Наименование = ?), (SELECT employee_id FROM employees WHERE Фамилия = ?),(SELECT place_id FROM placements WHERE Название = ?));";
     private static final String UPDATE
             = "UPDATE calendar SET Дата=?, \"Время начала\"=?, " +
@@ -66,7 +66,6 @@ public class CalendarManager {
                 java.sql.Date tempSqlDate = Date.valueOf(patient.getDate());
                 pst.setDate(1, tempSqlDate);
                 java.sql.Time startTime = Time.valueOf(patient.getStartTime());
-                System.out.println(startTime);
                 pst.setTime(2,startTime);
                 pst.setTime(3,startTime);
                 pst.setString(4, patient.getServiceName());

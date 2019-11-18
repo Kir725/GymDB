@@ -4,6 +4,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.MenuItem;
+import javafx.scene.control.SplitMenuButton;
 import javafx.scene.layout.AnchorPane;
 
 import java.io.IOException;
@@ -27,6 +29,15 @@ public class MainController {
     private Button btnAbonementsSale;
     @FXML
     private Button btnCalendar;
+    @FXML
+    private SplitMenuButton spMenuReports;
+
+    @FXML
+    private MenuItem miClientAgeReport;
+
+    @FXML
+    private MenuItem miAbonementTypeReport;
+
     @FXML
     private AnchorPane wrapperPane;
     @FXML
