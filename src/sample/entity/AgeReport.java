@@ -42,6 +42,6 @@ public class AgeReport {
     public String getInterval(){
         return startAgeInterval.toString()+ " - " + endAgeInterval.toString();
     }
-    
+
 
 }

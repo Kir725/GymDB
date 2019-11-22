@@ -4,14 +4,18 @@ import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Cursor;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import sample.dbmanagers.CalendarManager;
+import sample.dbmanagers.ChoiBoxManager;
 import sample.entity.Calendar;
 import sample.instruments.SearchManager;
 
@@ -20,9 +24,9 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 
 public class CalendarPaneController {
-    CalendarManager calendarManager = new CalendarManager();
-    SearchManager searchManager = new SearchManager();
-
+    private CalendarManager calendarManager = new CalendarManager();
+    private SearchManager searchManager = new SearchManager();
+    private ChoiBoxManager choiBoxManager = new ChoiBoxManager();
     @FXML
     private Button btnAddItem;
 
@@ -60,16 +64,19 @@ public class CalendarPaneController {
     private Button btnClear;
 
     @FXML
-    private TextField tfServicesNameSearch;
+    private ChoiceBox<String> choibxService;
 
     @FXML
-    private TextField tfEmployeeSearch;
+    private ChoiceBox<String> choibxPlace;
 
     @FXML
-    private TextField tfPlacementSearch;
+    private ChoiceBox<String> choibxTrainer;
 
     @FXML
     void initialize(){
+        choibxService.getItems().addAll(choiBoxManager.findServices());
+        choibxPlace.getItems().addAll(choiBoxManager.findPlaces());
+        choibxTrainer.getItems().addAll(choiBoxManager.findTrainers());
         colNum.setCellValueFactory(param -> new ReadOnlyObjectWrapper<Integer>(tableBD.getItems().indexOf(param.getValue())+1));
         colService.setCellValueFactory(new PropertyValueFactory<Calendar, String>("ServiceName"));
         colEmployee.setCellValueFactory(new PropertyValueFactory<Calendar, String>("EmployeeName"));
@@ -78,18 +85,16 @@ public class CalendarPaneController {
         colEndTime.setCellValueFactory(new PropertyValueFactory<Calendar, LocalTime>("EndTime"));
         colDate.setCellValueFactory(new PropertyValueFactory<Calendar, LocalDate>("Date"));
         colActions.setCellFactory(param -> new TableCell<Calendar, Void>() {
-            private  Button btnUpdate = new Button("Изменить");
-            private  Button btnDelete = new Button("Удалить");
-            /*private ImageView imageUpdate = new ImageView(new Image("sample/sourse/pencil.png"));
+            private ImageView imageUpdate = new ImageView(new Image("sample/sourse/pencil.png"));
             private ImageView imageDelete = new ImageView(new Image("sample/sourse/button_cancel.png"));
             {
                 imageUpdate.setCursor(Cursor.HAND);
                 imageDelete.setCursor(Cursor.HAND);
-            }*/
-            private final HBox pane = new HBox(10,btnUpdate, btnDelete);
+            }
+            private final HBox pane = new HBox(10,imageUpdate, imageDelete);
 
             {
-                btnUpdate.setOnMouseClicked(event -> {
+                imageUpdate.setOnMouseClicked(event -> {
                     Calendar patient = getTableView().getItems().get(getIndex());
                     try {
                         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/sample/addCalendarNotePanel.fxml"));
@@ -114,7 +119,7 @@ public class CalendarPaneController {
 
                 });
 
-                btnDelete.setOnMouseClicked(event -> {
+                imageDelete.setOnMouseClicked(event -> {
                     Calendar patient = getTableView().getItems().get(getIndex());
                     Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Удалить данные?", ButtonType.YES, ButtonType.CANCEL);
                     alert.showAndWait();
@@ -156,7 +161,7 @@ public class CalendarPaneController {
             }
         });
         btnSearch.setOnAction(event->{
-            searchManager.searchCalendar(tfServicesNameSearch.getText(),tfEmployeeSearch.getText(),tfServicesNameSearch.getText(),tableBD,calendarManager.findItems());
+            searchManager.searchCalendar(choibxService.getValue(),choibxTrainer.getValue(),choibxPlace.getValue(),tableBD,calendarManager.findItems());
         });
         btnClear.setOnAction(event->{
             loadTable(calendarManager.findItems());

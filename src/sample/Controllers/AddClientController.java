@@ -6,18 +6,25 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import sample.dbmanagers.ChoiBoxManager;
 import sample.dbmanagers.ClientManager;
 import sample.entity.Client;
+
+import java.time.LocalDate;
 
 public class AddClientController {
 
     private boolean save = false;
+    ChoiBoxManager choiBoxManager = new ChoiBoxManager();
 
     @FXML
     private TextField tfSecondName;
 
     @FXML
-    private TextField tfAbonementsType;
+    private ChoiceBox<String> choibxAbType;
+
+    @FXML
+    private TextField tfBornDate;
 
     @FXML
     private TextField tfName;
@@ -32,9 +39,6 @@ public class AddClientController {
     private TextField tfEmail;
 
     @FXML
-    private DatePicker dpBornDate;
-
-    @FXML
     private ChoiceBox<String> chbSex;
 
     @FXML
@@ -45,6 +49,7 @@ public class AddClientController {
 
     @FXML
     void initialize(){
+        choibxAbType.getItems().addAll(choiBoxManager.findAbTypes());
         btnСancel.setOnAction(event->{
             Stage stage = (Stage) btnСancel.getScene().getWindow();
             stage.close();
@@ -60,7 +65,7 @@ public class AddClientController {
     }
     Client getClient(){
         return new Client(tfName.getText(),tfSecondName.getText(),tfPatronymic.getText(),
-                tfEmail.getText(),tfPhone.getText(),chbSex.getValue(),dpBornDate.getValue(),tfAbonementsType.getText());
+                tfEmail.getText(),tfPhone.getText(),chbSex.getValue(),LocalDate.parse(tfBornDate.getText()),choibxAbType.getValue());
     }
     void initData(Client client) {
         tfName.setText(client.getFirstname());
@@ -69,8 +74,8 @@ public class AddClientController {
         tfEmail.setText(client.getEmail());
         tfPhone.setText(client.getPhone());
         chbSex.setValue(client.getSex());
-        dpBornDate.setValue(client.getBornDate());
-        tfAbonementsType.setText(client.getAbonementType());
+        tfBornDate.setText(client.getBornDate().toString());
+        choibxAbType.setValue(client.getAbonementType());
     }
 
 }

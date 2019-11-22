@@ -64,8 +64,6 @@ public class ClientsPaneController {
         colPhone.setCellValueFactory(new PropertyValueFactory<Client, String>("Phone"));
         colRegDate.setCellValueFactory(new PropertyValueFactory<Client, String>("RegDate"));
         colActions.setCellFactory(param -> new TableCell<Client, Void>() {
-            /*private  Button btnUpdate = new Button("Изменить");
-            private  Button btnDelete = new Button("Удалить");*/
             private ImageView imageUpdate = new ImageView(new Image("sample/sourse/pencil.png"));
             private ImageView imageDelete = new ImageView(new Image("sample/sourse/button_cancel.png"));
             {
@@ -99,7 +97,6 @@ public class ClientsPaneController {
                     }
 
                 });
-
                 imageDelete.setOnMouseClicked(event -> {
                     Client patient = getTableView().getItems().get(getIndex());
                     Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Удалить клиента?", ButtonType.YES, ButtonType.CANCEL);

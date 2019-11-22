@@ -51,16 +51,7 @@
                   <Font size="14.0" />
                </font>
             </Label>
-            <ChoiceBox fx:id="choibxPosition" layoutX="449.0" layoutY="103.0" prefHeight="25.0" prefWidth="149.0" >
-               <items>
-                  <FXCollections fx:factory="observableArrayList">
-                     <String fx:value="Администратор" />
-                     <String fx:value="Тренер" />
-                     <String fx:value="Бухгалтер" />
-                     <String fx:value="Cleaner" />
-                  </FXCollections>
-               </items>
-            </ChoiceBox>
+            <TextField fx:id="tfEmployeePosition" layoutX="449.0" layoutY="105.0" prefHeight="25.0" prefWidth="198.0" />
          </children>
       </AnchorPane>
       <Button fx:id="btnСancel" layoutX="501.0" layoutY="208.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="87.0" text="Отменить" />

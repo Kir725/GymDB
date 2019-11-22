@@ -17,6 +17,7 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import java.io.IOException;
 
+import sample.dbmanagers.ChoiBoxManager;
 import sample.dbmanagers.EmployeeManager;
 import sample.entity.Employee;
 import sample.instruments.SearchManager;
@@ -25,6 +26,7 @@ import sample.instruments.SearchManager;
 public class EmployeesPaneController {
     private EmployeeManager employeeManager = new EmployeeManager();
     private SearchManager searchManager = new SearchManager();
+    ChoiBoxManager choiBoxManager = new ChoiBoxManager();
 
     @FXML
     private Button btnAddEmployee;
@@ -73,6 +75,7 @@ public class EmployeesPaneController {
 
     @FXML
     void initialize(){
+        choibxPositionSearch.getItems().addAll(choiBoxManager.findEmployeePositions());
         colNum.setCellValueFactory(param -> new ReadOnlyObjectWrapper<Integer>(tableEmployees.getItems().indexOf(param.getValue())+1));
         colName.setCellValueFactory(new PropertyValueFactory<Employee, String>("FullName"));
         colPosition.setCellValueFactory(new PropertyValueFactory<Employee, String>("Position"));

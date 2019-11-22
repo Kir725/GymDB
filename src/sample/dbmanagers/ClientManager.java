@@ -10,15 +10,15 @@ import java.sql.*;
 
 public class ClientManager {
     private static final String SELECT
-            = "SELECT client_id,Имя,Фамилия,Отчество,Пол,Телефон,\"Email\",TO_CHAR(\"Дата рождения\",'DD-MM-YYYY') \"Дата рождения\"," +
-            "TO_CHAR(\"Дата регистрации\",'DD-MM-YYYY') \"Дата регистрации\", \"Тип Абонемента\" FROM clients";
-    private static final String SELECT_ONE
-            = "SELECT client_id, first_name, last_name, phone, email FROM jc_contact WHERE contact_id=?";
+            = "SELECT client_id,Имя,Фамилия,Отчество,Пол,Телефон,\"Email\",\"Дата рождения\"," +
+            "\"Дата регистрации\", \"Тип Абонемента\" FROM clients";
+    private static final String SELECT_BY_AB_TYPE
+            = "SELECT Фамилия,\"Email\",Телефон,\"Дата рождения\" FROM clients WHERE \"Тип Абонемента\"::int = (SELECT abonement_id FROM abonements WHERE \"Название\" = ?)";
     private static final String INSERT
             = "INSERT INTO clients (Имя,Фамилия,Отчество,Пол,Телефон,\"Email\",\"Дата рождения\",\"Тип Абонемента\") " +
-            "VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+            "VALUES (?, ?, ?, ?, ?, ?, ?, (SELECT abonement_id FROM abonements WHERE Название = ?))";
     private static final String UPDATE
-            = "UPDATE clients SET Имя=?, Фамилия=?, Отчество=?, Пол=?, Телефон=?, \"Email\"=?, \"Дата рождения\"=?,\"Тип Абонемента\"=? WHERE client_id=?";
+            = "UPDATE clients SET Имя=?, Фамилия=?, Отчество=?, Пол=?, Телефон=?, \"Email\"=?, \"Дата рождения\"=?,\"Тип Абонемента\"=(SELECT abonement_id FROM abonements WHERE Название = ?) WHERE client_id=?";
     private static final String DELETE
             = "DELETE FROM clients WHERE client_id=?";
 
@@ -33,15 +33,41 @@ public class ClientManager {
              PreparedStatement pst = con.prepareStatement(SELECT);
              ResultSet rs = pst.executeQuery()) {
             while (rs.next()) {
-                list.add(fillContact(rs));
+                list.add(fillClient(rs));
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
         return list;
     }
-
-    private Client fillContact(ResultSet rs) throws SQLException {
+    public ObservableList<Client> findClientsByAbType(String abType)  {
+        ObservableList<Client> list = FXCollections.observableArrayList();
+        try (Connection con = getConnection();
+             PreparedStatement pst = con.prepareStatement(SELECT_BY_AB_TYPE)) {
+            try {
+                pst.setString(1,abType);
+                ResultSet rs = pst.executeQuery();
+                while (rs.next()) {
+                    list.add(fillItems(rs));
+                }
+            } finally {
+                con.close();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return list;
+    }
+    private Client fillItems(ResultSet rs) throws SQLException {
+        Client client = new Client();
+        client.setSecondname(rs.getString("Фамилия"));
+        client.setEmail(rs.getString("Email"));
+        client.setPhone(rs.getString("Телефон"));
+        Date tempdate = rs.getDate("Дата рождения");
+        client.setBornDate(tempdate.toLocalDate());
+        return client;
+    }
+    private Client fillClient(ResultSet rs) throws SQLException {
         Client client = new Client();
         client.setId(rs.getInt("client_id"));
         client.setFirstname(rs.getString("Имя"));

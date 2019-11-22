@@ -34,16 +34,7 @@
                <font>
                   <Font size="14.0" />
                </font></Label>
-            <ChoiceBox fx:id="choibxAbonementType" layoutX="152.0" layoutY="67.0" prefHeight="25.0" prefWidth="198.0" >
-            <items>
-               <FXCollections fx:factory="observableArrayList">
-                  <String fx:value="Дневной" />
-                  <String fx:value="Безлимит" />
-                  <String fx:value="Полугодовой" />
-                  <String fx:value="Абонемент на год" />
-               </FXCollections>
-            </items>
-         </ChoiceBox>
+            <ChoiceBox fx:id="choibxAbonementType" layoutX="152.0" layoutY="67.0" prefHeight="25.0" prefWidth="198.0" />
             <DatePicker fx:id="dpDateStart" layoutX="483.0" layoutY="28.0" />
             <DatePicker fx:id="dpDateEnd" layoutX="483.0" layoutY="67.0" />
          </children>

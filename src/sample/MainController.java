@@ -31,7 +31,6 @@ public class MainController {
     private Button btnCalendar;
     @FXML
     private SplitMenuButton spMenuReports;
-
     @FXML
     private MenuItem miClientAgeReport;
 
@@ -53,6 +52,8 @@ public class MainController {
     @FXML
     private AnchorPane reportClientAgePane;
     @FXML
+    private AnchorPane reportAbTypePane;
+    @FXML
     private AnchorPane calendarPane;
     @FXML
     void initialize() throws IOException {
@@ -62,8 +63,9 @@ public class MainController {
         abonementsPane = load(getClass().getResource("/sample/abonementsPane.fxml"));
         servicesPane = FXMLLoader.<AnchorPane>load(getClass().getResource("/sample/servicesPane.fxml"));
         abonementsSalePane = load(getClass().getResource("/sample/abonementsSalePane.fxml"));
-        //calendarPane = load(getClass().getResource("/sample/calendarPane.fxml"));
+        calendarPane = load(getClass().getResource("/sample/calendarPane.fxml"));
         reportClientAgePane = load(getClass().getResource("/sample/reportClientAgePane.fxml"));
+        reportAbTypePane = load(getClass().getResource("/sample/reportAbonementsTypePane.fxml"));
         btnClients.setOnAction(event ->{
             wrapperPane.getChildren().clear();
             wrapperPane.getChildren().add(clientsPane);
@@ -91,6 +93,10 @@ public class MainController {
         miClientAgeReport.setOnAction(event->{
             wrapperPane.getChildren().clear();
             wrapperPane.getChildren().add(reportClientAgePane);
+        });
+        miAbonementTypeReport.setOnAction(event->{
+            wrapperPane.getChildren().clear();
+            wrapperPane.getChildren().add(reportAbTypePane);
         });
     }
 }

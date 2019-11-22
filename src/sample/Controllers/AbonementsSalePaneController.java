@@ -14,6 +14,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import sample.dbmanagers.ChoiBoxManager;
 import sample.dbmanagers.DealManager;
 import sample.entity.AbonementsDeal;
 import sample.instruments.SearchManager;
@@ -24,6 +25,7 @@ import java.time.LocalDate;
 public class AbonementsSalePaneController {
     private DealManager dealManager = new DealManager();
     private SearchManager searchManager = new SearchManager();
+    private ChoiBoxManager choiBoxManager = new ChoiBoxManager();
     @FXML
     private Button btnAddDeal;
 
@@ -64,6 +66,7 @@ public class AbonementsSalePaneController {
     private ChoiceBox<String> choibxAbonementType;
     @FXML
     void initialize(){
+        choibxAbonementType.getItems().addAll(choiBoxManager.findAbTypes());
         colCardNumber.setCellValueFactory(new PropertyValueFactory<AbonementsDeal, Integer>("CardNumber"));
         colClientName.setCellValueFactory(new PropertyValueFactory<AbonementsDeal, String>("ClientName"));
         colAbonementType.setCellValueFactory(new PropertyValueFactory<AbonementsDeal, String>("AbonementTitle"));

@@ -31,8 +31,8 @@
                 <TableColumn fx:id="colPrice" prefWidth="105.0" text="Цена&#10;" />
                 <TableColumn fx:id="colVisiting_hours" prefWidth="160.0" text="Часы посещения" />
                 <TableColumn fx:id="colValidity" minWidth="0.0" prefWidth="160.0" text="Срок действия" />
-                <TableColumn fx:id="colFreezing_time" prefWidth="115.0" text="Заморозка&#10;&#10;" />
-                <TableColumn fx:id="colActions" prefWidth="134.0" text="Действия" />
+                <TableColumn fx:id="colFreezing_time" prefWidth="139.0" text="Заморозка&#10;&#10;" />
+                <TableColumn fx:id="colActions" prefWidth="100.0" text="Действия" />
             </columns>
         </TableView>
         <Button fx:id="btnSearch" layoutX="754.0" layoutY="124.0" mnemonicParsing="false" text="Найти" />

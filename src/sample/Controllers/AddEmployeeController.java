@@ -5,11 +5,11 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import sample.dbmanagers.ChoiBoxManager;
 import sample.entity.Employee;
 
 public class AddEmployeeController {
     private boolean save = false;
-
     @FXML
     private TextField tfSecondName;
 
@@ -32,7 +32,7 @@ public class AddEmployeeController {
     private TextField tfSolary;
 
     @FXML
-    private ChoiceBox<String> choibxPosition;
+    private TextField tfEmployeePosition;
 
     @FXML
     private Button btnСancel;
@@ -56,7 +56,7 @@ public class AddEmployeeController {
     }
     Employee getEmployee(){
         return new Employee(tfName.getText(),tfSecondName.getText(),tfPatronymic.getText(),
-                tfEmail.getText(),tfPhone.getText(),chbSex.getValue(),choibxPosition.getValue(),Float.parseFloat(tfSolary.getText()));
+                tfEmail.getText(),tfPhone.getText(),chbSex.getValue(),tfEmployeePosition.getText(),Float.parseFloat(tfSolary.getText()));
     }
     void initData(Employee employee) {
         tfName.setText(employee.getFirstname());
@@ -65,7 +65,7 @@ public class AddEmployeeController {
         tfEmail.setText(employee.getEmail());
         tfPhone.setText(employee.getPhone());
         chbSex.setValue(employee.getSex());
-        choibxPosition.setValue(employee.getPosition());
+        tfEmployeePosition.setText(employee.getPosition());
         tfSolary.setText(employee.getSalary().toString());
     }
 }

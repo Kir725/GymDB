@@ -37,21 +37,27 @@
         </TableView>
         <Button fx:id="btnToFormReport" layoutX="663.0" layoutY="124.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="141.0" text="Сформировать отчет" />
         <Button fx:id="btnClear" layoutX="813.0" layoutY="124.0" mnemonicParsing="false" text="Очистить" />
-        <Label layoutX="17.0" layoutY="71.0" text="Интервал(лет)" />
-        <TextField fx:id="tfstAgeInterval" layoutX="108.0" layoutY="67.0" prefHeight="25.0" prefWidth="43.0" />
+        <Label layoutX="14.0" layoutY="72.0" text="Интервал(лет)" />
+        <TextField fx:id="tfstAgeInterval" layoutX="356.0" layoutY="68.0" prefHeight="25.0" prefWidth="43.0" />
       <Label layoutX="138.0" layoutY="642.0" text="Средний возраст:" />
       <Label fx:id="lbaverageAge" layoutX="262.0" layoutY="642.0" prefHeight="17.0" prefWidth="68.0" />
-      <TextField fx:id="tfEndAgeInterval" layoutX="182.0" layoutY="67.0" prefHeight="25.0" prefWidth="43.0" />
-      <Label layoutX="163.0" layoutY="71.0" text="-" />
-      <BarChart fx:id="barchartClientAge" layoutX="443.0" layoutY="161.0" prefHeight="491.0" prefWidth="453.0">
+      <TextField fx:id="tfEndAgeInterval" layoutX="427.0" layoutY="68.0" prefHeight="25.0" prefWidth="43.0" />
+      <Label layoutX="411.0" layoutY="72.0" text="-" />
+      <BarChart fx:id="barchartClientAge" layoutX="436.0" layoutY="163.0" prefHeight="512.0" prefWidth="455.0">
         <xAxis>
-          <CategoryAxis side="BOTTOM" />
+          <CategoryAxis animated="false" label="Интервал" side="BOTTOM" fx:id="xAxis" />
         </xAxis>
         <yAxis>
-          <NumberAxis side="LEFT" />
+          <NumberAxis fx:id="yAxis" animated="false" label="Значение" side="LEFT" upperBound="10.0" />
         </yAxis>
       </BarChart>
-      <RadioButton fx:id="rb15_25" layoutX="21.0" layoutY="107.0" mnemonicParsing="false" text="15-25" />
+      <RadioButton fx:id="rb15_25" layoutX="112.0" layoutY="72.0" mnemonicParsing="false" text="15-25" />
+      <RadioButton fx:id="rb25_35" layoutX="112.0" layoutY="94.0" mnemonicParsing="false" text="25-35" />
+      <RadioButton fx:id="rb35_40" layoutX="112.0" layoutY="116.0" mnemonicParsing="false" text="35-40" />
+      <RadioButton fx:id="rb40_50" layoutX="183.0" layoutY="72.0" mnemonicParsing="false" text="40-50" />
+      <RadioButton fx:id="rb50_60" layoutX="183.0" layoutY="94.0" mnemonicParsing="false" text="50-60" />
+      <RadioButton fx:id="rb60_70" layoutX="183.0" layoutY="116.0" mnemonicParsing="false" text="60-70" />
+      <Label layoutX="257.0" layoutY="72.0" text="Свой интервал" />
     </children>
 
 </AnchorPane>

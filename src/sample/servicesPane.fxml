@@ -28,10 +28,10 @@
             <columns>
                 <TableColumn fx:id="colNum" prefWidth="37.0" text="№" />
                 <TableColumn fx:id="colName" prefWidth="254.0" text="Наименование" />
-                <TableColumn fx:id="colValidating" prefWidth="130.0" text="Длительность(мин)&#10;" />
-                <TableColumn fx:id="colPrice" prefWidth="130.0" text="Стоимость" />
-                <TableColumn fx:id="colDescription" minWidth="0.0" prefWidth="218.0" text="Описание" />
-                <TableColumn fx:id="colActions" prefWidth="121.0" text="Действия" />
+                <TableColumn fx:id="colValidating" prefWidth="121.0" text="Длительность&#10;&#9;(мин)&#10;" />
+                <TableColumn fx:id="colPrice" prefWidth="120.0" text="Стоимость" />
+                <TableColumn fx:id="colDescription" minWidth="0.0" prefWidth="264.0" text="Описание &#10;" />
+                <TableColumn fx:id="colActions" prefWidth="100.0" text="Действия" />
             </columns>
         </TableView>
         <Button fx:id="btnSearch" layoutX="754.0" layoutY="124.0" mnemonicParsing="false" text="Найти" />

@@ -19,7 +19,9 @@ public class Main extends Application {
         }
         Parent root = FXMLLoader.<Parent>load(getClass().getResource("/sample/MainPage.fxml"));
         primaryStage.setTitle("GymDB");
-        primaryStage.setScene(new Scene(root, 1100, 700));
+        final Scene mainScene = new Scene(root, 1100, 673);
+        mainScene.getStylesheets().add((getClass().getResource("/sample/css/styles.css")).toExternalForm());
+        primaryStage.setScene(mainScene);
         primaryStage.show();
     }
 

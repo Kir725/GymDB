@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="clientsPane" prefHeight="673.0" prefWidth="897.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controllers.EmployeesPaneController">
+<AnchorPane fx:id="clientsPane" minHeight="673.0" prefHeight="673.0" prefWidth="897.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controllers.EmployeesPaneController">
     <children>
         <Separator layoutY="43.0" prefHeight="0.0" prefWidth="897.0" />
         <Separator layoutY="160.0" prefWidth="897.0" />
@@ -54,16 +54,7 @@
       <Label layoutX="17.0" layoutY="105.0" text="Телефон" />
       <TextField fx:id="tfPhoneSearch" layoutX="78.0" layoutY="101.0" prefHeight="25.0" prefWidth="278.0" />
       <Label layoutX="372.0" layoutY="105.0" text="Должность" />
-      <ChoiceBox fx:id="choibxPositionSearch" layoutX="449.0" layoutY="101.0" prefWidth="150.0" value="">
-        <items>
-            <FXCollections fx:factory="observableArrayList">
-                <String fx:value="Администратор" />
-                <String fx:value="Тренер" />
-                <String fx:value="Бухгалтер" />
-                <String fx:value="Cleaner" />
-            </FXCollections>
-        </items>
-        </ChoiceBox>
+      <ChoiceBox fx:id="choibxPositionSearch" layoutX="449.0" layoutY="101.0" prefWidth="150.0" value="" />
     </children>
 
 </AnchorPane>

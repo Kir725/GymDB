@@ -78,7 +78,7 @@ public class ServicesPaneController {
                 imageUpdate.setOnMouseClicked(event -> {
                     Service patient = getTableView().getItems().get(getIndex());
                     try {
-                        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/sample/addServicePane.fxml"));
+                        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/sample/addServicePanel.fxml"));
                         Parent root1 = (Parent) fxmlLoader.load();
                         AddServicesPaneController controller = fxmlLoader.getController();
                         controller.initData(patient);
@@ -122,7 +122,7 @@ public class ServicesPaneController {
 
         btnAddService.setOnAction(event ->{
             try {
-                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/sample/addServicePane.fxml"));
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/sample/addServicePanel.fxml"));
                 Parent root1 = (Parent) fxmlLoader.load();
                 AddServicesPaneController controller = fxmlLoader.getController();
                 Stage stage = new Stage();

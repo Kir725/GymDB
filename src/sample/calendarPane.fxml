@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
@@ -28,22 +28,22 @@
             <columns>
                 <TableColumn fx:id="colNum" prefWidth="37.0" text="№" />
                 <TableColumn fx:id="colService" prefWidth="165.0" text="Услуга" />
-                <TableColumn fx:id="colEmployee" prefWidth="165.0" text="Тренер&#10;&#10;" />
-                <TableColumn fx:id="colPlacement" prefWidth="145.0" text="Помещение" />
-                <TableColumn fx:id="colStartTime" minWidth="0.0" prefWidth="92.0" text="Время начала" />
-            <TableColumn fx:id="colEndTime" prefWidth="92.0" text="Время окончания" />
-                <TableColumn fx:id="colDate" minWidth="0.0" prefWidth="92.0" text="Дата&#10;&#10;" />
-                <TableColumn fx:id="colActions" minWidth="0.0" prefWidth="108.0" text="Действия" />
+                <TableColumn fx:id="colEmployee" prefWidth="154.0" text="Тренер&#10;&#10;" />
+                <TableColumn fx:id="colPlacement" prefWidth="127.0" text="Помещение" />
+                <TableColumn fx:id="colStartTime" minWidth="0.0" prefWidth="116.0" text="Время начала" />
+            <TableColumn fx:id="colEndTime" prefWidth="118.0" text="Время окончания" />
+                <TableColumn fx:id="colDate" minWidth="0.0" prefWidth="79.0" text="Дата&#10;&#10;" />
+                <TableColumn fx:id="colActions" minWidth="0.0" prefWidth="100.0" text="Действия" />
             </columns>
         </TableView>
         <Button fx:id="btnSearch" layoutX="754.0" layoutY="124.0" mnemonicParsing="false" text="Найти" />
         <Button fx:id="btnClear" layoutX="813.0" layoutY="124.0" mnemonicParsing="false" text="Очистить" />
         <Label layoutX="26.0" layoutY="70.0" text="Услуга" />
-      <TextField fx:id="tfServicesNameSearch" layoutX="114.0" layoutY="66.0" prefHeight="25.0" prefWidth="239.0" />
       <Label layoutX="378.0" layoutY="70.0" text="Тренер" />
-      <TextField fx:id="tfEmployeeSearch" layoutX="433.0" layoutY="68.0" prefHeight="25.0" prefWidth="239.0" />
       <Label layoutX="29.0" layoutY="106.0" text="Помещение" />
-      <TextField fx:id="tfPlacementSearch" layoutX="114.0" layoutY="102.0" prefHeight="25.0" prefWidth="239.0" />
+      <ChoiceBox fx:id="choibxService" layoutX="116.0" layoutY="66.0" prefHeight="25.0" prefWidth="223.0" />
+      <ChoiceBox fx:id="choibxPlace" layoutX="116.0" layoutY="111.0" prefHeight="25.0" prefWidth="223.0" />
+      <ChoiceBox fx:id="choibxTrainer" layoutX="449.0" layoutY="66.0" prefHeight="25.0" prefWidth="223.0" />
     </children>
 
 </AnchorPane>
