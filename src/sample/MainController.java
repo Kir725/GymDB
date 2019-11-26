@@ -1,16 +1,13 @@
 package sample;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.SplitMenuButton;
 import javafx.scene.layout.AnchorPane;
 
 import java.io.IOException;
 
-import static javafx.fxml.FXMLLoader.*;
 import static javafx.fxml.FXMLLoader.load;
 
 
@@ -58,17 +55,21 @@ public class MainController {
     @FXML
     void initialize() throws IOException {
         //FXMLLoader loader =  new FXMLLoader(getClass().getResource("/sample/calendarPane.fxml"));
-        clientsPane = load(getClass().getResource("/sample/clientsPane.fxml"));
-        employeesPane = load(getClass().getResource("/sample/employeesPane.fxml"));
-        abonementsPane = load(getClass().getResource("/sample/abonementsPane.fxml"));
-        servicesPane = FXMLLoader.<AnchorPane>load(getClass().getResource("/sample/servicesPane.fxml"));
-        abonementsSalePane = load(getClass().getResource("/sample/abonementsSalePane.fxml"));
-        calendarPane = load(getClass().getResource("/sample/calendarPane.fxml"));
-        reportClientAgePane = load(getClass().getResource("/sample/reportClientAgePane.fxml"));
-        reportAbTypePane = load(getClass().getResource("/sample/reportAbonementsTypePane.fxml"));
+        clientsPane = load(getClass().getResource("/sample/view/clientsPane.fxml"));
+        employeesPane = load(getClass().getResource("/sample/view/employeesPane.fxml"));
+        abonementsPane = load(getClass().getResource("/sample/view/abonementsPane.fxml"));
+        servicesPane = FXMLLoader.<AnchorPane>load(getClass().getResource("/sample/view/servicesPane.fxml"));
+        abonementsSalePane = load(getClass().getResource("/sample/view/abonementsSalePane.fxml"));
+        calendarPane = load(getClass().getResource("/sample/view/calendarPane.fxml"));
+        reportClientAgePane = load(getClass().getResource("/sample/view/reportClientAgePane.fxml"));
+        reportAbTypePane = load(getClass().getResource("/sample/view/reportAbonementsTypePane.fxml"));
         btnClients.setOnAction(event ->{
             wrapperPane.getChildren().clear();
             wrapperPane.getChildren().add(clientsPane);
+            AnchorPane.setBottomAnchor(clientsPane, 0.0);
+            AnchorPane.setLeftAnchor(clientsPane, 0.0);
+            AnchorPane.setRightAnchor(clientsPane, 0.0);
+            AnchorPane.setTopAnchor(clientsPane, 0.0);
         });
         btnEmplyoees.setOnAction(event ->{
             wrapperPane.getChildren().clear();

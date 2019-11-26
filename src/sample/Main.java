@@ -17,10 +17,11 @@ public class Main extends Application {
             ex.printStackTrace(System.out);
             return;
         }
-        Parent root = FXMLLoader.<Parent>load(getClass().getResource("/sample/MainPage.fxml"));
+        Parent root = FXMLLoader.<Parent>load(getClass().getResource("/sample/view/MainPage.fxml"));
         primaryStage.setTitle("GymDB");
         final Scene mainScene = new Scene(root, 1100, 673);
-        mainScene.getStylesheets().add((getClass().getResource("/sample/css/styles.css")).toExternalForm());
+        mainScene.getStylesheets().add("/sample/css/styles.css");
+        //mainScene.getStylesheets().add("org/kordamp/bootstrapfx/bootstrapfx.css");
         primaryStage.setScene(mainScene);
         primaryStage.show();
     }

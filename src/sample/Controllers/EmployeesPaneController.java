@@ -11,7 +11,6 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -97,7 +96,7 @@ public class EmployeesPaneController {
                 imageUpdate.setOnMouseClicked(event -> {
                     Employee patient = getTableView().getItems().get(getIndex());
                     try {
-                        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/sample/addEmployeePanel.fxml"));
+                        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/sample/view/addEmployeePanel.fxml"));
                         Parent root1 = (Parent) fxmlLoader.load();
                         AddEmployeeController controller = fxmlLoader.getController();
                         controller.initData(patient);
@@ -140,7 +139,7 @@ public class EmployeesPaneController {
 
         btnAddEmployee.setOnAction(event ->{
             try {
-                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/sample/addEmployeePanel.fxml"));
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/sample/view/addEmployeePanel.fxml"));
                 Parent root1 = (Parent) fxmlLoader.load();
                 AddEmployeeController controller = fxmlLoader.getController();
                 Stage stage = new Stage();

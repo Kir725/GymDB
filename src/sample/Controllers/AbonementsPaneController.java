@@ -19,7 +19,6 @@ import sample.entity.Abonement;
 import sample.instruments.SearchManager;
 
 import java.io.IOException;
-import java.time.LocalDate;
 
 public class AbonementsPaneController {
     AbonementManager abonementManager = new AbonementManager();
@@ -83,7 +82,7 @@ public class AbonementsPaneController {
                 imageUpdate.setOnMouseClicked(event -> {
                     Abonement patient = getTableView().getItems().get(getIndex());
                     try {
-                        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/sample/addAbonementPanel.fxml"));
+                        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/sample/view/addAbonementPanel.fxml"));
                         Parent root1 = (Parent) fxmlLoader.load();
                         AddAbonementController controller = fxmlLoader.getController();
                         controller.initData(patient);
@@ -127,7 +126,7 @@ public class AbonementsPaneController {
 
         btnAddAbonement.setOnAction(event ->{
             try {
-                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/sample/addAbonementPanel.fxml"));
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/sample/view/addAbonementPanel.fxml"));
                 Parent root1 = (Parent) fxmlLoader.load();
                 AddAbonementController controller = fxmlLoader.getController();
                 Stage stage = new Stage();

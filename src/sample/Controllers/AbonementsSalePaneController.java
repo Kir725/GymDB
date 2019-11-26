@@ -1,6 +1,5 @@
 package sample.Controllers;
 
-import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -87,7 +86,7 @@ public class AbonementsSalePaneController {
                 imageUpdate.setOnMouseClicked(event -> {
                     AbonementsDeal patient = getTableView().getItems().get(getIndex());
                     try {
-                        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/sample/addAbonementsDealPanel.fxml"));
+                        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/sample/view/addAbonementsDealPanel.fxml"));
                         Parent root1 = (Parent) fxmlLoader.load();
                         AddAbonementsDealController controller = fxmlLoader.getController();
                         controller.initData(patient);
@@ -131,7 +130,7 @@ public class AbonementsSalePaneController {
 
         btnAddDeal.setOnAction(event ->{
             try {
-                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/sample/addAbonementsDealPanel.fxml"));
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/sample/view/addAbonementsDealPanel.fxml"));
                 Parent root1 = (Parent) fxmlLoader.load();
                 AddAbonementsDealController controller = fxmlLoader.getController();
                 Stage stage = new Stage();

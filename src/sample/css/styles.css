@@ -14,3 +14,34 @@
     -fx-padding: 0;
     -fx-shape: null;
 }
+.main_menu_btns{
+-fx-background-color: #2d74c4;
+-fx-background-radius: 0;
+-fx-text-fill: #ffffff;
+-fx-font-size:14px;
+-fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );
+}
+.split-menu-button .menu-button{
+    -fx-background-color: #2d74c4;
+    -fx-text-fill: #ffffff;
+    -fx-padding: 7 30 7 30;
+
+    }
+.split-menu-button {
+   -fx-background-color: #2d74c4  ;
+
+}
+.split-menu-button .arrow-button {
+    -fx-background-color: #2d74c4 ;
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );
+}
+.split-menu-button .label {
+    -fx-background-color: #2d74c4;
+    -fx-padding: 8 30 8 30;
+    -fx-text-fill: #ffffff;
+    -fx-font-size:14px;
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );
+    }
+.split-menu-button .arrow {
+    -fx-background-color: #ffffff;
+    }

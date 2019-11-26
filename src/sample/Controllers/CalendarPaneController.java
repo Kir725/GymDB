@@ -12,7 +12,6 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
-import javafx.stage.Modality;
 import javafx.stage.Stage;
 import sample.dbmanagers.CalendarManager;
 import sample.dbmanagers.ChoiBoxManager;
@@ -97,7 +96,7 @@ public class CalendarPaneController {
                 imageUpdate.setOnMouseClicked(event -> {
                     Calendar patient = getTableView().getItems().get(getIndex());
                     try {
-                        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/sample/addCalendarNotePanel.fxml"));
+                        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/sample/view/addCalendarNotePanel.fxml"));
                         Parent root1 = (Parent) fxmlLoader.load();
                         AddCalendarNotePanelController controller = fxmlLoader.getController();
                         controller.initData(patient);
@@ -141,7 +140,7 @@ public class CalendarPaneController {
 
         btnAddItem.setOnAction(event ->{
             try {
-                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/sample/addCalendarNotePanel.fxml"));
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/sample/view/addCalendarNotePanel.fxml"));
                 Parent root1 = (Parent) fxmlLoader.load();
                 AddCalendarNotePanelController controller = fxmlLoader.getController();
                 Stage stage = new Stage();

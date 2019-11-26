@@ -17,7 +17,6 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.time.LocalDate;
 
-import sample.Controllers.AddClientController;
 import sample.dbmanagers.ClientManager;
 import sample.entity.Client;
 import sample.instruments.SearchManager;
@@ -58,11 +57,18 @@ public class ClientsPaneController {
     @FXML
     void initialize() throws IOException {
         colNum.setCellValueFactory(param -> new ReadOnlyObjectWrapper<Integer>(tableClients.getItems().indexOf(param.getValue())+1));
+        colNum.setMaxWidth( 1f * Integer.MAX_VALUE * 3 );
         colName.setCellValueFactory(new PropertyValueFactory<Client, String>("FullName"));
+        colName.setMaxWidth( 1f * Integer.MAX_VALUE * 27);
         colBornDate.setCellValueFactory(new PropertyValueFactory<Client, LocalDate>("BornDate"));
+        colBornDate.setMaxWidth( 1f * Integer.MAX_VALUE * 10 );
         colEmail.setCellValueFactory(new PropertyValueFactory<Client, String>("Email"));
+        colEmail.setMaxWidth( 1f * Integer.MAX_VALUE * 20 );
         colPhone.setCellValueFactory(new PropertyValueFactory<Client, String>("Phone"));
+        colPhone.setMaxWidth( 1f * Integer.MAX_VALUE * 20 );
         colRegDate.setCellValueFactory(new PropertyValueFactory<Client, String>("RegDate"));
+        colRegDate.setMaxWidth( 1f * Integer.MAX_VALUE * 10 );
+        colActions.setMaxWidth( 1f * Integer.MAX_VALUE * 10 );
         colActions.setCellFactory(param -> new TableCell<Client, Void>() {
             private ImageView imageUpdate = new ImageView(new Image("sample/sourse/pencil.png"));
             private ImageView imageDelete = new ImageView(new Image("sample/sourse/button_cancel.png"));
@@ -76,7 +82,7 @@ public class ClientsPaneController {
                 imageUpdate.setOnMouseClicked(event -> {
                     Client patient = getTableView().getItems().get(getIndex());
                     try {
-                        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/sample/addClientPanel.fxml"));
+                        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/sample/view/addClientPanel.fxml"));
                         Parent root1 = (Parent) fxmlLoader.load();
                         AddClientController controller = fxmlLoader.getController();
                         controller.initData(patient);
@@ -120,7 +126,7 @@ public class ClientsPaneController {
 
         btnAddClient.setOnAction(event ->{
             try {
-                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/sample/addClientPanel.fxml"));
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/sample/view/addClientPanel.fxml"));
                 Parent root1 = (Parent) fxmlLoader.load();
                 AddClientController controller = fxmlLoader.getController();
                 Stage stage = new Stage();
