@@ -9,15 +9,26 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
+<?import javafx.scene.text.TextFlow?>
+<?import javafx.scene.text.Text?>
 <AnchorPane fx:id="calendarPane" prefHeight="673.0" prefWidth="897.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controllers.CalendarPaneController">
     <children>
         <Separator layoutY="43.0" prefHeight="0.0" prefWidth="897.0" />
         <Separator layoutY="160.0" prefWidth="897.0" />
-        <Label layoutX="14.0" layoutY="6.0" text="Расписание">
-            <font>
-                <Font name="Comic Sans MS" size="20.0" />
-            </font>
-        </Label>
+        <TextFlow layoutX="14.0" layoutY="8.0" prefHeight="17.0" prefWidth="200.0">
+            <children>
+                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Р" styleClass="firstLetter">
+                    <font>
+                        <Font name="Comic Sans MS" size="20.0" />
+                    </font>
+                </Text>
+                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="асписание" styleClass="endLetters">
+                    <font>
+                        <Font name="Comic Sans MS" size="20.0" />
+                    </font>
+                </Text>
+            </children>
+        </TextFlow>
         <Button fx:id="btnAddItem" layoutX="791.0" layoutY="4.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="92.0" text="Добавить" />
         <Label layoutX="14.0" layoutY="46.0" text="Поиск">
             <font>

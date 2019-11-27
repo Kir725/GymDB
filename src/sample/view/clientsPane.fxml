@@ -11,22 +11,17 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.text.TextFlow?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
 
 <AnchorPane fx:id="clientsPane" prefHeight="673.0" prefWidth="897.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controllers.ClientsPaneController">
     <children>
-        <Separator layoutY="43.0" prefHeight="0.0" prefWidth="897.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="43.0" />
-        <Label layoutX="14.0" layoutY="6.0" text="Клиенты " AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="6.0">
-            <font>
-                <Font name="Comic Sans MS" size="20.0" />
-            </font>
-        </Label>
-        <Button fx:id="btnAddClient" layoutX="791.0" layoutY="4.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="92.0" text="Добавить" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="4.0" />
-        <Label layoutX="14.0" layoutY="46.0" text="Поиск" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="46.0">
-            <font>
-                <Font name="System Italic" size="12.0" />
-            </font>
-        </Label>
-        <TableView fx:id="tableClients" layoutY="161.0" prefHeight="512.0" prefWidth="897.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="161.0">
+        <Button fx:id="btnAddClient" layoutX="791.0" layoutY="4.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="110.0" styleClass="add_btn" text="Добавить" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="4.0">
+         <graphic>
+            <FontIcon iconColor="#2d74c4" iconLiteral="enty-circle-with-plus" iconSize="27" wrappingWidth="27.0" />
+         </graphic></Button>
+        <TableView fx:id="tableClients" layoutY="157.0" prefHeight="526.0" prefWidth="897.0" AnchorPane.bottomAnchor="-10.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="157.0">
             <columns>
                 <TableColumn fx:id="colNum" prefWidth="37.0" text="№" />
                 <TableColumn fx:id="colName" prefWidth="297.0" text="Имя" />
@@ -40,21 +35,50 @@
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
          </columnResizePolicy>
         </TableView>
-        <Button fx:id="btnSearchClients" layoutX="754.0" layoutY="124.0" mnemonicParsing="false" text="Найти" AnchorPane.rightAnchor="93.0" AnchorPane.topAnchor="124.0" />
-        <Button fx:id="btnClear" layoutX="813.0" layoutY="124.0" mnemonicParsing="false" text="Очистить" AnchorPane.rightAnchor="16.0" AnchorPane.topAnchor="124.0" />
-        <Label layoutX="17.0" layoutY="71.0" prefHeight="17.0" prefWidth="27.0" text="ФИО" AnchorPane.leftAnchor="17.0" AnchorPane.topAnchor="71.0" />
-        <TextField fx:id="tfNameSearch" layoutX="78.0" layoutY="67.0" prefHeight="25.0" prefWidth="278.0" AnchorPane.leftAnchor="78.0" AnchorPane.topAnchor="67.0" />
-      <Label layoutX="375.0" layoutY="71.0" text="Пол" AnchorPane.topAnchor="71.0" />
-      <ChoiceBox fx:id="chbSexSearch" layoutX="407.0" layoutY="67.0" prefHeight="25.0" prefWidth="50.0" value="М" AnchorPane.leftAnchor="407.0" AnchorPane.topAnchor="67.0">
-          <items>
-              <FXCollections fx:factory="observableArrayList">
-                  <String fx:value="М" />
-                  <String fx:value="Ж" />
-              </FXCollections>
-          </items>
-      </ChoiceBox>
-      <Label layoutX="17.0" layoutY="105.0" text="Телефон" AnchorPane.leftAnchor="17.0" AnchorPane.topAnchor="105.0" />
-      <TextField fx:id="tfPhoneSearch" layoutX="78.0" layoutY="101.0" prefHeight="25.0" prefWidth="278.0" AnchorPane.topAnchor="101.0" />
+      <TextFlow layoutX="14.0" layoutY="8.0" prefHeight="17.0" prefWidth="200.0">
+         <children>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="firstLetter" text="К">
+               <font>
+                  <Font name="Comic Sans MS" size="20.0" />
+               </font>
+            </Text>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="endLetters" text="лиенты">
+               <font>
+                  <Font name="Comic Sans MS" size="20.0" />
+               </font>
+            </Text>
+         </children>
+      </TextFlow>
+      <AnchorPane fx:id="paneForColor" layoutX="-1.0" layoutY="42.0" prefHeight="117.0" prefWidth="897.0" style="-fx-background-color: #f2f9fd" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="42.0">
+         <children>
+              <Button fx:id="btnSearchClients" layoutX="651.0" layoutY="73.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="110.0" styleClass="search_btn" text="Найти" AnchorPane.rightAnchor="136.0" AnchorPane.topAnchor="73.0" >
+                  <graphic>
+                      <FontIcon iconColor="#2d74c4" iconLiteral="fa-search" iconSize="23" wrappingWidth="23.0" />
+                  </graphic></Button>
+              <Separator prefHeight="0.0" prefWidth="897.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+              <Label layoutX="14.0" layoutY="6.0" text="Поиск" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="6.0">
+                  <font>
+                      <Font name="System Italic" size="12.0" />
+                  </font>
+              </Label>
+              <Button fx:id="btnClear" layoutX="773.0" layoutY="73.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="110.0" styleClass="clear_btn" text="Очистить" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="73.0" >
+             <graphic>
+                 <FontIcon iconColor="#2d74c4" iconLiteral="fa-repeat" iconSize="23" wrappingWidth="23.0" />
+             </graphic></Button>
+              <Label layoutX="26.0" layoutY="31.0" prefHeight="17.0" prefWidth="27.0" text="ФИО" AnchorPane.leftAnchor="26.0" AnchorPane.topAnchor="31.0" />
+              <TextField fx:id="tfNameSearch" layoutX="80.0" layoutY="27.0" prefHeight="25.0" prefWidth="278.0" AnchorPane.leftAnchor="80.0" AnchorPane.topAnchor="27.0" />
+            <Label layoutX="23.0" layoutY="64.0" text="Телефон" AnchorPane.leftAnchor="23.0" AnchorPane.topAnchor="64.0" />
+            <TextField fx:id="tfPhoneSearch" layoutX="80.0" layoutY="60.0" prefHeight="25.0" prefWidth="278.0" AnchorPane.leftAnchor="80.0" AnchorPane.topAnchor="60.0" />
+            <ChoiceBox fx:id="chbSexSearch" layoutX="406.0" layoutY="27.0" prefHeight="25.0" prefWidth="50.0" value="М" AnchorPane.leftAnchor="406.0" AnchorPane.topAnchor="27.0">
+                <items>
+                    <FXCollections fx:factory="observableArrayList">
+                        <String fx:value="М" />
+                        <String fx:value="Ж" />
+                    </FXCollections>
+                </items>
+            </ChoiceBox>
+            <Label layoutX="372.0" layoutY="31.0" text="Пол" AnchorPane.leftAnchor="372.0" AnchorPane.topAnchor="31.0" />
+         </children></AnchorPane>
     </children>
 
 </AnchorPane>
