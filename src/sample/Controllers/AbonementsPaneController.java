@@ -4,6 +4,7 @@ import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Insets;
 import javafx.scene.Cursor;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -12,8 +13,10 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
+import javafx.scene.paint.Paint;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import org.kordamp.ikonli.javafx.FontIcon;
 import sample.dbmanagers.AbonementManager;
 import sample.entity.Abonement;
 import sample.instruments.SearchManager;
@@ -21,8 +24,8 @@ import sample.instruments.SearchManager;
 import java.io.IOException;
 
 public class AbonementsPaneController {
-    AbonementManager abonementManager = new AbonementManager();
-    SearchManager searchManager = new SearchManager();
+    private AbonementManager abonementManager = new AbonementManager();
+    private SearchManager searchManager = new SearchManager();
     @FXML
     private Button btnAddAbonement;
 
@@ -68,18 +71,22 @@ public class AbonementsPaneController {
         colValidity.setCellValueFactory(new PropertyValueFactory<Abonement, String>("Validity"));
         colFreezing_time.setCellValueFactory(new PropertyValueFactory<Abonement, String>("Freezing_time"));
         colActions.setCellFactory(param -> new TableCell<Abonement, Void>() {
-            /*private  Button btnUpdate = new Button("Изменить");
-            private  Button btnDelete = new Button("Удалить");*/
-            private ImageView imageUpdate = new ImageView(new Image("sample/sourse/pencil.png"));
-            private ImageView imageDelete = new ImageView(new Image("sample/sourse/button_cancel.png"));
+            private FontIcon iconUpdate = new FontIcon("fa-pencil");
+            private FontIcon iconDelete = new FontIcon("fth-cross");
             {
-                imageUpdate.setCursor(Cursor.HAND);
-                imageDelete.setCursor(Cursor.HAND);
+                iconUpdate.setCursor(Cursor.HAND);
+                iconUpdate.setIconColor(Paint.valueOf("#5fa6e6"));
+                iconUpdate.setIconSize(25);
+                iconDelete.setCursor(Cursor.HAND);
+                iconDelete.setIconColor(Paint.valueOf("#eb2e34"));
+                iconDelete.setIconSize(25);
             }
-            private final HBox pane = new HBox(10,imageUpdate, imageDelete);
-
+            private final HBox pane = new HBox(5,iconUpdate, iconDelete);
             {
-                imageUpdate.setOnMouseClicked(event -> {
+                pane.setPadding(new Insets(0,0, 0,20));
+            }
+            {
+                iconUpdate.setOnMouseClicked(event -> {
                     Abonement patient = getTableView().getItems().get(getIndex());
                     try {
                         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/sample/view/addAbonementPanel.fxml"));
@@ -104,7 +111,7 @@ public class AbonementsPaneController {
 
                 });
 
-                imageDelete.setOnMouseClicked(event -> {
+                iconDelete.setOnMouseClicked(event -> {
                     Abonement patient = getTableView().getItems().get(getIndex());
                     Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Удалить абонемент?", ButtonType.YES, ButtonType.CANCEL);
                     alert.showAndWait();

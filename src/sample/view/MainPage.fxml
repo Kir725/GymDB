@@ -6,33 +6,41 @@
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
-
 <?import org.kordamp.ikonli.javafx.FontIcon?>
+
 <VBox minHeight="673.0" prefHeight="673.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.MainController">
     <children>
-        <SplitPane dividerPositions="0.17941712204007285"  prefHeight="848.0" prefWidth="1100.0" VBox.vgrow="ALWAYS">
+        <SplitPane dividerPositions="0.17941712204007285" prefHeight="848.0" prefWidth="1100.0" VBox.vgrow="ALWAYS">
             <items>
-                <AnchorPane maxWidth="-Infinity" minHeight="0.0" style="-fx-background-color: #2d74c4" minWidth="195.0" prefHeight="612.0" prefWidth="195.0">
+                <AnchorPane maxWidth="-Infinity" minHeight="0.0" minWidth="195.0" prefHeight="612.0" prefWidth="195.0" style="-fx-background-color: #2d74c4">
                     <children>
                         <VBox prefHeight="673.0" prefWidth="195.0">
                             <children>
-                                <Button fx:id="btnClients" mnemonicParsing="false" styleClass="main_menu_btns" prefHeight="50.0" prefWidth="229.0" text="Клиенты" />
-
-                                <Button fx:id="btnEmplyoees" mnemonicParsing="false" styleClass="main_menu_btns" prefHeight="50.0" prefWidth="229.0" text="Сотрудники" />
-                                <Button fx:id="btnServices" mnemonicParsing="false" styleClass="main_menu_btns" prefHeight="50.0" prefWidth="229.0" text="Услуги" />
-                                <Button fx:id="btnAbonements" mnemonicParsing="false" styleClass="main_menu_btns" prefHeight="50.0" prefWidth="229.0" text="Абонементы" >
+                                <Button fx:id="btnClients" alignment="BASELINE_RIGHT" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" prefHeight="50.0" prefWidth="229.0" styleClass="main_menu_btns" text="Клиенты">
+                                <graphic>
+                                    <FontIcon iconColor="#ffffff" iconLiteral="fas-running" iconSize="23" rotate="31.6" wrappingWidth="23.0" />
+                                </graphic></Button>
+                                <Button fx:id="btnEmplyoees" alignment="BASELINE_RIGHT" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" prefHeight="50.0" prefWidth="229.0" styleClass="main_menu_btns" text="Сотрудники">
+                                <graphic>
+                                    <FontIcon iconColor="#ffffff" iconLiteral="fa-group" iconSize="23" wrappingWidth="23.0" />
+                                </graphic></Button>
+                                <Button fx:id="btnServices" alignment="BASELINE_RIGHT" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" prefHeight="50.0" prefWidth="229.0" styleClass="main_menu_btns" text="Услуги">
+                                <graphic>
+                                    <FontIcon iconColor="#ffffff" iconLiteral="ion4-md-settings" iconSize="23" wrappingWidth="23.0" />
+                                </graphic></Button>
+                                <Button fx:id="btnAbonements" alignment="BASELINE_RIGHT" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" prefHeight="50.0" prefWidth="229.0" styleClass="main_menu_btns" text="Абонементы">
                                 <graphic>
                                     <FontIcon iconColor="#ffffff" iconLiteral="fa-id-card-o" iconSize="23" wrappingWidth="23.0" />
                                 </graphic></Button>
-                        <Button fx:id="btnAbonementsSale" mnemonicParsing="false" styleClass="main_menu_btns" prefHeight="50.0" prefWidth="229.0" text="Продажа Абонементов" >
+                        <Button fx:id="btnAbonementsSale" alignment="BASELINE_RIGHT" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" prefHeight="50.0" prefWidth="229.0" styleClass="main_menu_btns" text="Продажа карт">
                                 <graphic>
                                     <FontIcon iconColor="#ffffff" iconLiteral="fa-handshake-o" iconSize="23" wrappingWidth="23.0" />
                                 </graphic></Button>
-                        <Button fx:id="btnCalendar" mnemonicParsing="false" styleClass="main_menu_btns" prefHeight="50.0" prefWidth="229.0" text="Расписание" >
+                        <Button fx:id="btnCalendar" alignment="BASELINE_RIGHT" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" prefHeight="50.0" prefWidth="229.0" styleClass="main_menu_btns" text="Расписание">
                                 <graphic>
                                     <FontIcon iconColor="#ffffff" iconLiteral="fa-calendar" iconSize="23" wrappingWidth="23.0" />
                                 </graphic></Button>
-                        <SplitMenuButton fx:id="spMenuReports"  alignment="BASELINE_CENTER" mnemonicParsing="false" prefHeight="50.0" prefWidth="229.0" text="Отчеты">
+                        <SplitMenuButton fx:id="spMenuReports" alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="50.0" prefWidth="229.0" text="Отчеты">
                             <graphic>
                                 <FontIcon iconColor="#ffffff" iconLiteral="fa-line-chart" iconSize="23" wrappingWidth="23.0" />
                             </graphic>
@@ -45,7 +53,7 @@
                         </VBox>
                     </children>
                 </AnchorPane>
-                <AnchorPane fx:id="wrapperPane" style="-fx-background-color: #ffffff" minHeight="0.0" minWidth="0.0" prefHeight="673.0" prefWidth="919.0" />
+                <AnchorPane fx:id="wrapperPane" minHeight="0.0" minWidth="0.0" prefHeight="673.0" prefWidth="919.0" style="-fx-background-color: #ffffff" />
             </items>
         </SplitPane>
     </children>

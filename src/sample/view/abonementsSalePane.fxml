@@ -9,34 +9,31 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
-
-<?import javafx.scene.text.TextFlow?>
 <?import javafx.scene.text.Text?>
+<?import javafx.scene.text.TextFlow?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+
 <AnchorPane fx:id="abonementsSalePane" prefHeight="673.0" prefWidth="897.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controllers.AbonementsSalePaneController">
     <children>
-        <Separator layoutY="43.0" prefHeight="0.0" prefWidth="897.0" />
-        <Separator layoutY="160.0" prefWidth="897.0" />
-        <TextFlow layoutX="14.0" layoutY="8.0" prefHeight="17.0" prefWidth="500.0">
+        <TextFlow layoutX="14.0" layoutY="8.0" prefHeight="17.0" prefWidth="500.0" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="8.0">
             <children>
-                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="П" styleClass="firstLetter">
+                <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="firstLetter" text="П">
                     <font>
                         <Font name="Comic Sans MS" size="20.0" />
                     </font>
                 </Text>
-                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="родажа абонементов" styleClass="endLetters">
+                <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="endLetters" text="родажа абонементов">
                     <font>
                         <Font name="Comic Sans MS" size="20.0" />
                     </font>
                 </Text>
             </children>
         </TextFlow>
-        <Button fx:id="btnAddDeal" layoutX="791.0" layoutY="4.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="92.0" text="Продать" />
-        <Label layoutX="14.0" layoutY="46.0" text="Поиск">
-            <font>
-                <Font name="System Italic" size="12.0" />
-            </font>
-        </Label>
-        <TableView fx:id="tableBD" layoutY="161.0" prefHeight="512.0" prefWidth="897.0">
+        <Button fx:id="btnAddDeal" alignment="BOTTOM_LEFT" layoutX="791.0" layoutY="4.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="120.0" styleClass="add_btn" text=" Добавить" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="4.0">
+            <graphic>
+                <FontIcon iconColor="#2d74c4" iconLiteral="enty-circle-with-plus" iconSize="27" wrappingWidth="27.0" />
+            </graphic></Button>
+        <TableView fx:id="tableBD" layoutY="161.0" prefHeight="512.0" prefWidth="897.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
             <columns>
                 <TableColumn fx:id="colCardNumber" prefWidth="76.0" text="Номер&#10; карты" />
                 <TableColumn fx:id="colClientName" prefWidth="198.0" text="Фамилия клиента" />
@@ -46,14 +43,29 @@
                 <TableColumn fx:id="colActions" prefWidth="106.0" text="Действия" />
             </columns>
         </TableView>
-        <Button fx:id="btnSearch" layoutX="754.0" layoutY="124.0" mnemonicParsing="false" text="Найти" />
-        <Button fx:id="btnClear" layoutX="813.0" layoutY="124.0" mnemonicParsing="false" text="Очистить" />
-        <Label layoutX="17.0" layoutY="71.0" text="Номер карты" />
-      <TextField fx:id="tfCardNumberSearch" layoutX="108.0" layoutY="67.0" prefHeight="25.0" prefWidth="176.0" />
-      <TextField fx:id="tfClientNameSearch" layoutX="108.0" layoutY="99.0" prefHeight="25.0" prefWidth="176.0" />
-      <Label layoutX="17.0" layoutY="103.0" text="Клиент" />
-      <Label layoutX="310.0" layoutY="71.0" text="Тип Абонемента" />
-      <ChoiceBox fx:id="choibxAbonementType" layoutX="419.0" layoutY="67.0" prefHeight="25.0" prefWidth="176.0" />
+        <AnchorPane fx:id="paneForColor" layoutX="-1.0" layoutY="42.0" prefHeight="117.0" prefWidth="897.0" style="-fx-background-color: #f2f9fd" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="42.0">
+            <children>
+                <Label layoutX="14.0" layoutY="6.0" text="Поиск" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="6.0">
+                    <font>
+                        <Font name="System Italic" size="12.0" />
+                    </font>
+                </Label>
+        <Separator layoutY="0.0" prefHeight="0.0" prefWidth="897.0" />
+        <Button fx:id="btnSearch" alignment="BASELINE_CENTER" layoutX="630.0" layoutY="73.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="120.0" styleClass="search_btn" text="     Найти" AnchorPane.rightAnchor="147.0" AnchorPane.topAnchor="73.0">
+            <graphic>
+                <FontIcon iconColor="#2d74c4" iconLiteral="fa-search" iconSize="23" text="" wrappingWidth="23.0" />
+            </graphic></Button>
+        <Button fx:id="btnClear" layoutX="773.0" layoutY="73.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="120.0" styleClass="clear_btn" text=" Очистить" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="73.0">
+            <graphic>
+                <FontIcon iconColor="#2d74c4" iconLiteral="fa-repeat" iconSize="23" wrappingWidth="23.0" />
+            </graphic></Button>
+        <Label layoutX="19.0" layoutY="35.0" text="Номер карты" AnchorPane.leftAnchor="19.0" AnchorPane.topAnchor="35.0" />
+      <TextField fx:id="tfCardNumberSearch" layoutX="108.0" layoutY="31.0" prefHeight="25.0" prefWidth="176.0" AnchorPane.leftAnchor="108.0" AnchorPane.topAnchor="31.0" />
+      <TextField fx:id="tfClientNameSearch" layoutX="108.0" layoutY="61.0" prefHeight="25.0" prefWidth="176.0" AnchorPane.leftAnchor="108.0" AnchorPane.topAnchor="61.0" />
+      <Label layoutX="19.0" layoutY="65.0" text="Клиент" AnchorPane.leftAnchor="19.0" AnchorPane.topAnchor="65.0" />
+      <Label layoutX="308.0" layoutY="35.0" text="Тип Абонемента" AnchorPane.leftAnchor="308.0" AnchorPane.topAnchor="35.0" />
+      <ChoiceBox fx:id="choibxAbonementType" layoutX="419.0" layoutY="31.0" prefHeight="25.0" prefWidth="176.0" AnchorPane.leftAnchor="419.0" AnchorPane.topAnchor="31.0" />
+            </children></AnchorPane>
     </children>
 
 </AnchorPane>

@@ -3,6 +3,7 @@ package sample.Controllers;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Insets;
 import javafx.scene.Cursor;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -11,8 +12,10 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
+import javafx.scene.paint.Paint;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import org.kordamp.ikonli.javafx.FontIcon;
 import sample.dbmanagers.ChoiBoxManager;
 import sample.dbmanagers.DealManager;
 import sample.entity.AbonementsDeal;
@@ -72,18 +75,22 @@ public class AbonementsSalePaneController {
         colDateStart.setCellValueFactory(new PropertyValueFactory<AbonementsDeal, LocalDate>("StartDate"));
         colDateEnd.setCellValueFactory(new PropertyValueFactory<AbonementsDeal, LocalDate>("EndDate"));
         colActions.setCellFactory(param -> new TableCell<AbonementsDeal, Void>() {
-            /*private  Button btnUpdate = new Button("Изменить");
-            private  Button btnDelete = new Button("Удалить");*/
-            private ImageView imageUpdate = new ImageView(new Image("sample/sourse/pencil.png"));
-            private ImageView imageDelete = new ImageView(new Image("sample/sourse/button_cancel.png"));
+            private FontIcon iconUpdate = new FontIcon("fa-pencil");
+            private FontIcon iconDelete = new FontIcon("fth-cross");
             {
-                imageUpdate.setCursor(Cursor.HAND);
-                imageDelete.setCursor(Cursor.HAND);
+                iconUpdate.setCursor(Cursor.HAND);
+                iconUpdate.setIconColor(Paint.valueOf("#5fa6e6"));
+                iconUpdate.setIconSize(25);
+                iconDelete.setCursor(Cursor.HAND);
+                iconDelete.setIconColor(Paint.valueOf("#eb2e34"));
+                iconDelete.setIconSize(25);
             }
-            private final HBox pane = new HBox(10,imageUpdate, imageDelete);
-
+            private final HBox pane = new HBox(5,iconUpdate, iconDelete);
             {
-                imageUpdate.setOnMouseClicked(event -> {
+                pane.setPadding(new Insets(0,0, 0,20));
+            }
+            {
+                iconUpdate.setOnMouseClicked(event -> {
                     AbonementsDeal patient = getTableView().getItems().get(getIndex());
                     try {
                         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/sample/view/addAbonementsDealPanel.fxml"));
@@ -108,7 +115,7 @@ public class AbonementsSalePaneController {
 
                 });
 
-                imageDelete.setOnMouseClicked(event -> {
+                iconDelete.setOnMouseClicked(event -> {
                     AbonementsDeal patient = getTableView().getItems().get(getIndex());
                     Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Удалить данные?", ButtonType.YES, ButtonType.CANCEL);
                     alert.showAndWait();

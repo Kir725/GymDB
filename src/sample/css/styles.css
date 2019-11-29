@@ -14,6 +14,25 @@
     -fx-padding: 0;
     -fx-shape: null;
 }
+.button, .choice-box :hover {
+ -fx-cursor: hand;
+ }
+ .button:armed {
+    -fx-background-color: linear-gradient(#2d74c4, #2d74c4),
+                                  linear-gradient(#2d74c4 0%, #2d74c4 20%, #2d74c4 100%),
+                                  linear-gradient(#accff6 0%, #eff1f5 50%);
+ }
+ .choice-box {
+    -fx-background-color: #2d74c4,#ffffff;
+            -fx-background-insets: 0,1,2,3;
+            -fx-background-radius: 3,2,2,2;
+ }
+.choice-box .arrow {
+-fx-background-color: #2d74c4;
+}
+
+
+
 /*******************************************************************************
  *                                                                             *
  * MyClases                                                              *
@@ -26,6 +45,20 @@
 -fx-font-size:14px;
 -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );
 }
+.main_menu_btns:hover{
+-fx-background-color: #448de0;
+}
+.main_menu_btns:armed {
+-fx-background-color: #236cbe;
+}
+
+
+.btnСancel{
+        -fx-background-color: #2d74c4,#ffffff;
+        -fx-background-insets: 0,1,2,3;
+        -fx-background-radius: 3,2,2,2;
+}
+
 
 .add_btn {
         -fx-background-color: #2d74c4,#ffffff;
@@ -56,20 +89,33 @@
  * SplitMenuButton                                                                *
  *                                                                             *
  ******************************************************************************/
-.split-menu-button .menu-button{
+/*.split-menu-button .menu-button{
     -fx-background-color: #2d74c4;
     -fx-text-fill: #ffffff;
     -fx-padding: 7 30 7 30;
-    }
+    }*/
+.split-menu-button .label:hover{
+-fx-background-color: #448de0;
+}
+.split-menu-button .arrow-button:hover{
+-fx-background-color: #448de0;
+}
 .split-menu-button {
-   -fx-background-color: #2d74c4  ;
-
+   -fx-background-color: #2d74c4;
 }
 .split-menu-button .arrow-button {
     -fx-background-color: #2d74c4 ;
     -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );
 }
 .split-menu-button .label {
+    .split-menu-button > .label {
+        -
+        -fx-background-insets: 0, 1 0 1 1, 2 1 2 2;
+        -fx-background-radius: 5 0 0 5, 4 0 0 4, 3 0 0 3;
+        /*-fx-padding: 0.166667em 0.667em 0.25em 0.833333em; /* 2 8 3 10 */
+        -fx-content-display: right;
+
+
     -fx-background-color: #2d74c4;
     -fx-padding: 8 30 8 30;
     -fx-text-fill: #ffffff;

@@ -2,24 +2,34 @@ package sample.Controllers;
 
 import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.collections.ObservableList;
+import javafx.geometry.Insets;
 import javafx.scene.Cursor;
 import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.Border;
 import javafx.scene.layout.HBox;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.paint.Paint;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+
+import java.awt.*;
 import java.io.IOException;
 import java.time.LocalDate;
 
+import org.kordamp.ikonli.javafx.FontIcon;
 import sample.dbmanagers.ClientManager;
 import sample.entity.Client;
 import sample.instruments.SearchManager;
+
+import javax.swing.*;
 
 public class ClientsPaneController {
     private ClientManager clientManager = new ClientManager();
@@ -70,16 +80,22 @@ public class ClientsPaneController {
         colRegDate.setMaxWidth( 1f * Integer.MAX_VALUE * 10 );
         colActions.setMaxWidth( 1f * Integer.MAX_VALUE * 10 );
         colActions.setCellFactory(param -> new TableCell<Client, Void>() {
-            private ImageView imageUpdate = new ImageView(new Image("sample/sourse/pencil.png"));
-            private ImageView imageDelete = new ImageView(new Image("sample/sourse/button_cancel.png"));
+            private FontIcon iconUpdate = new FontIcon("fa-pencil");
+            private FontIcon iconDelete = new FontIcon("fth-cross");
             {
-                imageUpdate.setCursor(Cursor.HAND);
-                imageDelete.setCursor(Cursor.HAND);
+                iconUpdate.setCursor(Cursor.HAND);
+                iconUpdate.setIconColor(Paint.valueOf("#5fa6e6"));
+                iconUpdate.setIconSize(25);
+                iconDelete.setCursor(Cursor.HAND);
+                iconDelete.setIconColor(Paint.valueOf("#eb2e34"));
+                iconDelete.setIconSize(25);
             }
-            private final HBox pane = new HBox(10,imageUpdate, imageDelete);
-
+            private final HBox pane = new HBox(5,iconUpdate, iconDelete);
             {
-                imageUpdate.setOnMouseClicked(event -> {
+                pane.setPadding(new Insets(0,0, 0,20));
+            }
+            {
+                iconUpdate.setOnMouseClicked(event -> {
                     Client patient = getTableView().getItems().get(getIndex());
                     try {
                         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/sample/view/addClientPanel.fxml"));
@@ -103,7 +119,7 @@ public class ClientsPaneController {
                     }
 
                 });
-                imageDelete.setOnMouseClicked(event -> {
+                iconDelete.setOnMouseClicked(event -> {
                     Client patient = getTableView().getItems().get(getIndex());
                     Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Удалить клиента?", ButtonType.YES, ButtonType.CANCEL);
                     alert.showAndWait();

@@ -12,33 +12,60 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
-
-<?import javafx.scene.text.TextFlow?>
 <?import javafx.scene.text.Text?>
+<?import javafx.scene.text.TextFlow?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+
 <AnchorPane fx:id="ageReportPane" prefHeight="673.0" prefWidth="897.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controllers.ReportAgeController">
     <children>
-        <Separator layoutY="43.0" prefHeight="0.0" prefWidth="897.0" />
-        <Separator layoutY="160.0" prefWidth="897.0" />
+
+
         <TextFlow layoutX="14.0" layoutY="8.0" prefHeight="17.0" prefWidth="500.0">
             <children>
-                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="О" styleClass="firstLetter">
+                <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="firstLetter" text="О">
                     <font>
                         <Font name="Comic Sans MS" size="20.0" />
                     </font>
                 </Text>
-                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="тчет по возрасту посетителей" styleClass="endLetters">
+                <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="endLetters" text="тчет по возрасту посетителей">
                     <font>
                         <Font name="Comic Sans MS" size="20.0" />
                     </font>
                 </Text>
             </children>
         </TextFlow>
-        <Button fx:id="btnPrint" layoutX="791.0" layoutY="4.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="92.0" text="Печать" />
-        <Label layoutX="14.0" layoutY="46.0" text="Поиск">
+        <Button fx:id="btnPrint" alignment="BOTTOM_LEFT" layoutX="791.0" layoutY="4.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="120.0" styleClass="add_btn" text=" Печать" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="4.0">
+            <graphic>
+                <FontIcon iconColor="#2d74c4" iconLiteral="fa-print" iconSize="27" wrappingWidth="27.0" />
+            </graphic></Button>
+        <AnchorPane fx:id="paneForColor" layoutX="-1.0" layoutY="93.0" prefHeight="121.0" prefWidth="898.0" style="-fx-background-color: #f2f9fd" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="42.0">
+            <children>
+        <Label layoutX="14.0" layoutY="6.0" text="Поиск" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="6.0">
             <font>
                 <Font name="System Italic" size="12.0" />
             </font>
         </Label>
+        <Separator layoutY="0.0" prefHeight="0.0" prefWidth="897.0" />
+                <RadioButton fx:id="rb15_25" layoutX="112.0" layoutY="30.0" mnemonicParsing="false" text="15-25" />
+                <RadioButton fx:id="rb25_35" layoutX="112.0" layoutY="58.0" mnemonicParsing="false" text="25-35" />
+                <RadioButton fx:id="rb35_40" layoutX="112.0" layoutY="85.0" mnemonicParsing="false" text="35-40" />
+                <RadioButton fx:id="rb40_50" layoutX="183.0" layoutY="30.0" mnemonicParsing="false" text="40-50" />
+                <RadioButton fx:id="rb50_60" layoutX="183.0" layoutY="58.0" mnemonicParsing="false" text="50-60" />
+                <RadioButton fx:id="rb60_70" layoutX="183.0" layoutY="85.0" mnemonicParsing="false" text="60-70" />
+                <Label layoutX="256.0" layoutY="30.0" text="Свой интервал" />
+                <TextField fx:id="tfEndAgeInterval" layoutX="419.0" layoutY="26.0" prefHeight="25.0" prefWidth="43.0" />
+                <Label layoutX="405.0" layoutY="30.0" text="-" />
+                <Button fx:id="btnToFormReport" alignment="BASELINE_CENTER" layoutX="630.0" layoutY="73.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="192.0" styleClass="search_btn" text="  Сформировать отчет" AnchorPane.rightAnchor="147.0" AnchorPane.topAnchor="73.0">
+                    <graphic>
+                        <FontIcon iconColor="#2d74c4" iconLiteral="fa-file-text-o" iconSize="23" wrappingWidth="23.0" />
+                    </graphic></Button>
+                <Button fx:id="btnClear" layoutX="773.0" layoutY="73.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="120.0" styleClass="clear_btn" text=" Очистить" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="73.0">
+                    <graphic>
+                        <FontIcon iconColor="#2d74c4" iconLiteral="fa-repeat" iconSize="23" wrappingWidth="23.0" />
+                    </graphic></Button>
+                <Label layoutX="14.0" layoutY="30.0" text="Интервал(лет)" />
+                <TextField fx:id="tfstAgeInterval" layoutX="353.0" layoutY="26.0" prefHeight="25.0" prefWidth="43.0" />
+            </children></AnchorPane>
         <TableView fx:id="tableReport" layoutY="161.0" prefHeight="469.0" prefWidth="444.0">
             <columns>
                 <TableColumn fx:id="colNum" prefWidth="37.0" text="№" />
@@ -46,14 +73,10 @@
                 <TableColumn fx:id="colClientCount" minWidth="0.0" prefWidth="212.0" text="Количество посетителей" />
             </columns>
         </TableView>
-        <Button fx:id="btnToFormReport" layoutX="663.0" layoutY="124.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="141.0" text="Сформировать отчет" />
-        <Button fx:id="btnClear" layoutX="813.0" layoutY="124.0" mnemonicParsing="false" text="Очистить" />
-        <Label layoutX="14.0" layoutY="72.0" text="Интервал(лет)" />
-        <TextField fx:id="tfstAgeInterval" layoutX="356.0" layoutY="68.0" prefHeight="25.0" prefWidth="43.0" />
+
       <Label layoutX="138.0" layoutY="642.0" text="Средний возраст:" />
       <Label fx:id="lbaverageAge" layoutX="262.0" layoutY="642.0" prefHeight="17.0" prefWidth="68.0" />
-      <TextField fx:id="tfEndAgeInterval" layoutX="427.0" layoutY="68.0" prefHeight="25.0" prefWidth="43.0" />
-      <Label layoutX="411.0" layoutY="72.0" text="-" />
+
       <BarChart fx:id="barchartClientAge" layoutX="436.0" layoutY="163.0" prefHeight="512.0" prefWidth="455.0">
         <xAxis>
           <CategoryAxis animated="false" label="Интервал" side="BOTTOM" fx:id="xAxis" />
@@ -62,13 +85,7 @@
           <NumberAxis fx:id="yAxis" animated="false" label="Значение" side="LEFT" upperBound="10.0" />
         </yAxis>
       </BarChart>
-      <RadioButton fx:id="rb15_25" layoutX="112.0" layoutY="72.0" mnemonicParsing="false" text="15-25" />
-      <RadioButton fx:id="rb25_35" layoutX="112.0" layoutY="94.0" mnemonicParsing="false" text="25-35" />
-      <RadioButton fx:id="rb35_40" layoutX="112.0" layoutY="116.0" mnemonicParsing="false" text="35-40" />
-      <RadioButton fx:id="rb40_50" layoutX="183.0" layoutY="72.0" mnemonicParsing="false" text="40-50" />
-      <RadioButton fx:id="rb50_60" layoutX="183.0" layoutY="94.0" mnemonicParsing="false" text="50-60" />
-      <RadioButton fx:id="rb60_70" layoutX="183.0" layoutY="116.0" mnemonicParsing="false" text="60-70" />
-      <Label layoutX="257.0" layoutY="72.0" text="Свой интервал" />
+
     </children>
 
 </AnchorPane>

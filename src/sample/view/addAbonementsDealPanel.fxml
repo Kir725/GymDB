@@ -7,12 +7,11 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
 
-<?import javafx.collections.FXCollections?>
-<?import java.lang.String?>
-<AnchorPane prefHeight="195.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controllers.AddAbonementsDealController">
+<AnchorPane prefHeight="201.0" prefWidth="700.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controllers.AddAbonementsDealController">
    <children>
-      <AnchorPane layoutX="14.0" layoutY="14.0" prefHeight="131.0" prefWidth="684.0" style="-fx-border-style: solid;" AnchorPane.leftAnchor="8.0" AnchorPane.rightAnchor="8.0" AnchorPane.topAnchor="8.0">
+      <AnchorPane layoutX="14.0" layoutY="14.0" prefHeight="132.0" prefWidth="684.0" style="-fx-border-style: solid;-fx-background-color: #f2f9fd;-fx-border-color: #d0e4f0;" styleClass="addPane" AnchorPane.leftAnchor="8.0" AnchorPane.rightAnchor="8.0" AnchorPane.topAnchor="8.0">
          <children>
             <Label layoutX="31.0" layoutY="30.0" text="Клиент">
                <font>
@@ -39,7 +38,20 @@
             <DatePicker fx:id="dpDateEnd" layoutX="483.0" layoutY="67.0" />
          </children>
       </AnchorPane>
-      <Button fx:id="btnСancel" layoutX="500.0" layoutY="153.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="87.0" text="Отменить" />
-      <Button fx:id="btnSave" layoutX="599.0" layoutY="153.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="87.0" text="Сохранить" />
+      <Button fx:id="btnСancel" layoutX="437.0" layoutY="151.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="120.0" style="-fx-background-color: #2d74c4,#ffffff;                      -fx-background-insets: 0,1,2,3;                      -fx-background-radius: 3,2,2,2;" text="Отменить">
+         <graphic>
+            <FontIcon iconColor="red" iconLiteral="fth-cross" iconSize="23" wrappingWidth="23.0" />
+         </graphic>
+         <font>
+            <Font size="14.0" />
+         </font></Button>
+      <Button fx:id="btnSave" layoutX="572.0" layoutY="151.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="120.0" style="-fx-background-color: green,#ffffff;                      -fx-background-insets: 0,1,2,3;                      -fx-background-radius: 3,2,2,2;" text="Сохранить">
+         <graphic>
+            <FontIcon iconColor="green" iconLiteral="fa-floppy-o" iconSize="23" wrappingWidth="23.0" />
+         </graphic>
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

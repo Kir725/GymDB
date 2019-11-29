@@ -7,40 +7,42 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
-
-<?import javafx.scene.text.TextFlow?>
 <?import javafx.scene.text.Text?>
+<?import javafx.scene.text.TextFlow?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+
 <AnchorPane fx:id="AbTypeReportPane" prefHeight="673.0" prefWidth="897.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controllers.ReportAbTypeController">
     <children>
-        <Separator layoutY="43.0" prefHeight="0.0" prefWidth="897.0" />
-        <Separator layoutY="160.0" prefWidth="897.0" />
         <TextFlow layoutX="14.0" layoutY="8.0" prefHeight="17.0" prefWidth="500.0">
             <children>
-                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="О" styleClass="firstLetter">
+                <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="firstLetter" text="О">
                     <font>
                         <Font name="Comic Sans MS" size="20.0" />
                     </font>
                 </Text>
-                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="тчет по типу абонементов" styleClass="endLetters">
+                <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="endLetters" text="тчет по типу абонементов">
                     <font>
                         <Font name="Comic Sans MS" size="20.0" />
                     </font>
                 </Text>
             </children>
         </TextFlow>
-        <Button fx:id="btnPrint" layoutX="791.0" layoutY="4.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="92.0" text="Печать" />
-        <TableView fx:id="tableReport" layoutY="161.0" prefHeight="469.0" prefWidth="414.0">
-            <columns>
-                <TableColumn fx:id="colNumAbType" prefWidth="37.0" text="№" />
-                <TableColumn fx:id="colAbonementType" prefWidth="158.0" text="Тип Абонемента" />
-                <TableColumn fx:id="colSoldNumber" minWidth="0.0" prefWidth="123.0" text="Кол-во проданных&#10;         абон-ов" />
-            <TableColumn fx:id="colSumm" prefWidth="95.0" text="Сумма" />
-            </columns>
-        </TableView>
-        <Button fx:id="btnToFormReport" layoutX="663.0" layoutY="124.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="141.0" text="Сформировать отчет" />
-        <Button fx:id="btnClear" layoutX="813.0" layoutY="124.0" mnemonicParsing="false" text="Очистить" />
-      <Label layoutX="14.0" layoutY="642.0" text="Количество проданных абонементов(всего):" />
-      <Label fx:id="lbAllAbenementSold" layoutX="273.0" layoutY="642.0" prefHeight="17.0" prefWidth="68.0" />
+        <Button fx:id="btnPrint" alignment="BOTTOM_LEFT" layoutX="791.0" layoutY="4.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="120.0" styleClass="add_btn" text=" Печать" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="4.0">
+            <graphic>
+                <FontIcon iconColor="#2d74c4" iconLiteral="fa-print" iconSize="27" wrappingWidth="27.0" />
+            </graphic></Button>
+        <AnchorPane fx:id="paneForColor" layoutX="-1.0" layoutY="93.0" prefHeight="121.0" prefWidth="898.0" style="-fx-background-color: #f2f9fd" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="42.0">
+            <children>
+        <Separator layoutY="0.0" prefHeight="0.0" prefWidth="897.0" />
+        <Button fx:id="btnToFormReport" alignment="BASELINE_CENTER" layoutX="630.0" layoutY="73.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="192.0" styleClass="search_btn" text="  Сформировать отчет" AnchorPane.rightAnchor="147.0" AnchorPane.topAnchor="73.0">
+            <graphic>
+                <FontIcon iconColor="#2d74c4" iconLiteral="fa-file-text-o" iconSize="23" wrappingWidth="23.0" />
+            </graphic></Button>
+        <Button fx:id="btnClear" layoutX="773.0" layoutY="73.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="120.0" styleClass="clear_btn" text=" Очистить" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="73.0">
+            <graphic>
+                <FontIcon iconColor="#2d74c4" iconLiteral="fa-repeat" iconSize="23" wrappingWidth="23.0" />
+            </graphic></Button>
+            </children></AnchorPane>
       <TableView fx:id="tableClients" layoutX="414.0" layoutY="161.0" prefHeight="469.0" prefWidth="484.0">
         <columns>
           <TableColumn fx:id="colNumClients" prefWidth="37.0" text="№" />
@@ -50,8 +52,19 @@
             <TableColumn fx:id="colBornDate" prefWidth="77.0" text="    Дата&#10; Рождения" />
         </columns>
       </TableView>
-      <Label layoutX="348.0" layoutY="642.0" text="Сумма(всего):" />
-      <Label fx:id="lbOverallSum" layoutX="435.0" layoutY="642.0" />
+        <TableView fx:id="tableReport" layoutY="161.0" prefHeight="469.0" prefWidth="414.0">
+            <columns>
+                <TableColumn fx:id="colNumAbType" prefWidth="37.0" text="№" />
+                <TableColumn fx:id="colAbonementType" prefWidth="158.0" text="Тип Абонемента" />
+                <TableColumn fx:id="colSoldNumber" minWidth="0.0" prefWidth="123.0" text="Кол-во проданных&#10;         абон-ов" />
+            <TableColumn fx:id="colSumm" prefWidth="95.0" text="Сумма" />
+            </columns>
+        </TableView>
+<Label fx:id="lbOverallSum" layoutX="440.0" layoutY="642.0" />
+<Label fx:id="lbAllAbenementSold" layoutX="272.0" layoutY="642.0" prefHeight="17.0" prefWidth="51.0" />
+<Label layoutX="347.0" layoutY="642.0" text="Сумма(всего):" />
+<Label layoutX="18.0" layoutY="642.0" text="Количество проданных абонементов(всего):" />
+
     </children>
 
 </AnchorPane>

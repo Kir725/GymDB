@@ -20,7 +20,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ReportAgeController {
-    ReportAgeManager reportAgeManager = new ReportAgeManager();
+    private ReportAgeManager reportAgeManager = new ReportAgeManager();
 
     @FXML
     private Button btnPrint;
@@ -117,6 +117,14 @@ public class ReportAgeController {
         btnClear.setOnAction(event ->{
             tableReport.getItems().clear();
             barchartClientAge.getData().clear();
+            rb15_25.setSelected(false);
+            rb25_35.setSelected(false);
+            rb35_40.setSelected(false);
+            rb40_50.setSelected(false);
+            rb50_60.setSelected(false);
+            rb60_70.setSelected(false);
+            tfstAgeInterval.setText("");
+            tfEndAgeInterval.setText("");
         });
     }
 
